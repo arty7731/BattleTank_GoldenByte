@@ -1,6 +1,10 @@
 #include"Header.h"
+#include "AllegroCore.h"
 
 void main()
 {
-	cout << "Hello!" << endl;
+	AllegroCore bTanks;
+	bTanks.Initialize(1280, 720, 0, 0, 0);
+
+	bTanks.Main();
 }

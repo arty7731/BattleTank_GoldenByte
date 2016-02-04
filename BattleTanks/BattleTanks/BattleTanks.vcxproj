@@ -76,6 +76,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -148,9 +149,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AllegroHeader.h" />
+    <ClInclude Include="AllegroCore.h" />
+    <ClInclude Include="BaseView.h" />
     <ClInclude Include="Header.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AllegroCore.cpp" />
+    <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
