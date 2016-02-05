@@ -7,14 +7,18 @@ AllegroCore::AllegroCore()
 	eventQueue = nullptr;
 	backgroundImage = nullptr;
 	mainAtlas = nullptr;
+	font = nullptr;
 	fpsTimeout = 60;
 }
 
 void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 {
 	if (!al_init())	throw "Allegro initialize error!";	// инициализация библиотеки Allegro
-	
+
+	// initialize addon
 	al_init_image_addon();
+	al_init_font_addon(); // initialize the font addon
+	al_init_ttf_addon();// initialize the ttf (True Type Font) addon
 	
 	this->width = width;
 	this->height = height;
@@ -30,6 +34,9 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	eventQueue = al_create_event_queue();
 	if (eventQueue == nullptr) throw "Event queue creation error!";
 	
+	font = al_load_ttf_font("./Resources/ttf/BRUX.ttf", 60, 0);
+	if (font == nullptr) throw "Font creation error!";
+
 	backgroundImage = al_load_bitmap("./Resources/Images/Menu.jpg");	// картинки пока нет!!!
 	//mainAtlas = al_load_bitmap("./Resources/Images/Menu.jpg");
 	//if (backgroundImage == nullptr || mainAtlas == nullptr) throw "Load image error!";
@@ -47,6 +54,8 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_register_event_source(eventQueue, al_get_keyboard_event_source());
 	
 	al_clear_to_color(al_map_rgb(r, g, b));	// замена цвета фона
+	al_draw_text(font, al_map_rgb(255, 255, 255), 1280 / 2, (720 / 4), ALLEGRO_ALIGN_CENTRE, "Your Text Here!");
+
 	al_flip_display();	// подмена экрана буфером
 	//al_rest(5);	// задержка выхода из окна (sleep 5000)
 }
@@ -63,14 +72,14 @@ void AllegroCore::Main()
 	while (true)
 	{
 		al_wait_for_event(eventQueue, &ev);
-
 		
 		if (ev.type == ALLEGRO_EVENT_TIMER && al_is_event_queue_empty(eventQueue))
 		{
 			al_draw_bitmap(backgroundImage, 0, 0, 0);
-			
 			al_flip_display();
 		}
+
+
 		if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) break;	// для работы кнопки close
 	}
 }

@@ -13,6 +13,8 @@ class AllegroCore
 	ALLEGRO_BITMAP *backgroundImage;
 	ALLEGRO_BITMAP *mainAtlas;
 
+	ALLEGRO_FONT *font;
+
 	int width;
 	int height;
 
