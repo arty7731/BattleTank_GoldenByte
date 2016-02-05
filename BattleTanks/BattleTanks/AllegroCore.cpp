@@ -34,7 +34,7 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	eventQueue = al_create_event_queue();
 	if (eventQueue == nullptr) throw "Event queue creation error!";
 	
-	font = al_load_ttf_font("./Resources/ttf/BRUX.ttf", 60, 0);
+	font = al_load_ttf_font("./Resources/Fonts/BRUX.ttf", 60, 0);
 	if (font == nullptr) throw "Font creation error!";
 
 	backgroundImage = al_load_bitmap("./Resources/Images/Menu.jpg");	// картинки пока нет!!!
@@ -54,7 +54,6 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_register_event_source(eventQueue, al_get_keyboard_event_source());
 	
 	al_clear_to_color(al_map_rgb(r, g, b));	// замена цвета фона
-	al_draw_text(font, al_map_rgb(255, 255, 255), 1280 / 2, (720 / 4), ALLEGRO_ALIGN_CENTRE, "Your Text Here!");
 
 	al_flip_display();	// подмена экрана буфером
 	//al_rest(5);	// задержка выхода из окна (sleep 5000)
@@ -76,6 +75,8 @@ void AllegroCore::Main()
 		if (ev.type == ALLEGRO_EVENT_TIMER && al_is_event_queue_empty(eventQueue))
 		{
 			al_draw_bitmap(backgroundImage, 0, 0, 0);
+			al_draw_text(font, al_map_rgb(255, 255, 255), 260, 100, ALLEGRO_ALIGN_CENTRE, "New GAME");
+
 			al_flip_display();
 		}
 
