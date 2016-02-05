@@ -6,8 +6,7 @@ AllegroCore::AllegroCore()
 	timer = nullptr;
 	eventQueue = nullptr;
 	backgroundImage = nullptr;
-	mainAtlas = nullptr;
-	font = nullptr;
+	mainFont = nullptr;
 	fpsTimeout = 60;
 }
 
@@ -34,12 +33,10 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	eventQueue = al_create_event_queue();
 	if (eventQueue == nullptr) throw "Event queue creation error!";
 	
-	font = al_load_ttf_font("./Resources/Fonts/BRUX.ttf", 60, 0);
-	if (font == nullptr) throw "Font creation error!";
+	mainFont = al_load_ttf_font("Resources/Fonts/BRUX.ttf", 60, 0);
+	if (mainFont == nullptr) throw "Font creation error!";
 
-	backgroundImage = al_load_bitmap("./Resources/Images/Menu.jpg");	// картинки пока нет!!!
-	//mainAtlas = al_load_bitmap("./Resources/Images/Menu.jpg");
-	//if (backgroundImage == nullptr || mainAtlas == nullptr) throw "Load image error!";
+	backgroundImage = al_load_bitmap("Resources/Images/Menu.jpg");	// картинка фона
 	if (backgroundImage == nullptr) throw "Load image error!";
 
 	al_set_target_bitmap(al_get_backbuffer(display));	// отрисовка в буфер
@@ -53,6 +50,8 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_register_event_source(eventQueue, al_get_display_event_source(display));
 	al_register_event_source(eventQueue, al_get_keyboard_event_source());
 	
+	currentView = new MainMenuView(width, height, backgroundImage, mainFont);
+
 	al_clear_to_color(al_map_rgb(r, g, b));	// замена цвета фона
 
 	al_flip_display();	// подмена экрана буфером
@@ -74,9 +73,12 @@ void AllegroCore::Main()
 		
 		if (ev.type == ALLEGRO_EVENT_TIMER && al_is_event_queue_empty(eventQueue))
 		{
-			al_draw_bitmap(backgroundImage, 0, 0, 0);
-			al_draw_text(font, al_map_rgb(255, 255, 255), 260, 100, ALLEGRO_ALIGN_CENTRE, "New GAME");
-
+			//al_draw_bitmap(backgroundImage, 0, 0, 0);
+			//al_draw_text(mainFont, al_map_rgb(255, 255, 255), width/2, 10, ALLEGRO_ALIGN_CENTRE, "Battle Tanks");
+			//al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 100, ALLEGRO_ALIGN_CENTRE, "New GAME");
+			
+			currentView->Update();
+			
 			al_flip_display();
 		}
 

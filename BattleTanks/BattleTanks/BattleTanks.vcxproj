@@ -156,10 +156,12 @@
     <ClInclude Include="AllegroCore.h" />
     <ClInclude Include="BaseView.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="MainMenuView.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllegroCore.cpp" />
     <ClCompile Include="BaseView.cpp" />
+    <ClCompile Include="MainMenuView.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,19 @@
 #pragma once
 #include "Header.h"
+#include "AllegroHeader.h"
 
 class BaseView
 {
+protected:
+	int width;
+	int height;
+	ALLEGRO_FONT *mainFont;
+	ALLEGRO_BITMAP *backgroundImage;
+
 public:
-	BaseView();
+	BaseView(int width, int height, ALLEGRO_BITMAP *backgroundImage, ALLEGRO_FONT *mainFont);
 
-	virtual void Draw() = 0;
+	virtual void Update() = 0;
 
-	~BaseView();
 };
 

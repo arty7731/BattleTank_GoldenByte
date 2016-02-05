@@ -33,6 +33,9 @@
     <ClInclude Include="AllegroCore.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenuView.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -43,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="AllegroCore.cpp">
       <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuView.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

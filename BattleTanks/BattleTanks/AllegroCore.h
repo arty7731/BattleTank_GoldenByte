@@ -2,6 +2,7 @@
 #include "AllegroHeader.h"
 #include "Header.h"
 #include "BaseView.h"
+#include "MainMenuView.h"
 
 class AllegroCore
 {
@@ -11,16 +12,15 @@ class AllegroCore
 	ALLEGRO_COLOR backgroundColor;
 
 	ALLEGRO_BITMAP *backgroundImage;
-	ALLEGRO_BITMAP *mainAtlas;
 
-	ALLEGRO_FONT *font;
+	ALLEGRO_FONT *mainFont;
 
 	int width;
 	int height;
 
 	int fpsTimeout;
 
-	BaseView *baseView;
+	BaseView *currentView;
 
 public:
 	AllegroCore();
