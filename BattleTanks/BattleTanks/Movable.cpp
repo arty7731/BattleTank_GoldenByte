@@ -5,8 +5,3 @@
 Movable::Movable()
 {
 }
-
-
-Movable::~Movable()
-{
-}

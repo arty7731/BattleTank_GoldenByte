@@ -19,6 +19,9 @@
     <Filter Include="View">
       <UniqueIdentifier>{6c8000d5-90b7-4499-8602-898a4abdd676}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{83563279-905a-4020-a390-75567aa58dbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
@@ -45,6 +48,9 @@
     <ClInclude Include="MainMenuView.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2d.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -64,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="MainMenuView.cpp">
       <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2d.cpp">
+      <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

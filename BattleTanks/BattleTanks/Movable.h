@@ -10,7 +10,6 @@ protected:
 	int speed;
 public:
 	Movable();
-	Movable();
 
 	void SetSpeed(int speed);
 	void SetDirection(Direction direction);
