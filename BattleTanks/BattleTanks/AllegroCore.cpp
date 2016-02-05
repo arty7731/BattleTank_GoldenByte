@@ -52,7 +52,7 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_register_event_source(eventQueue, al_get_timer_event_source(timer));
 	al_register_event_source(eventQueue, al_get_display_event_source(display));
 	al_register_event_source(eventQueue, al_get_keyboard_event_source());
-	
+
 	al_clear_to_color(al_map_rgb(r, g, b));	// замена цвета фона
 
 	al_flip_display();	// подмена экрана буфером

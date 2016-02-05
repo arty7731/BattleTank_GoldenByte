@@ -33,6 +33,15 @@
     <ClInclude Include="AllegroCore.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Movable.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEnumeration.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -43,6 +52,12 @@
     </ClCompile>
     <ClCompile Include="AllegroCore.cpp">
       <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Movable.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
