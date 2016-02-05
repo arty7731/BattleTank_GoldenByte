@@ -155,13 +155,18 @@
     <ClInclude Include="AllegroHeader.h" />
     <ClInclude Include="AllegroCore.h" />
     <ClInclude Include="BaseView.h" />
+    <ClInclude Include="CoreEnumeration.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="MainMenuView.h" />
+    <ClInclude Include="Movable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllegroCore.cpp" />
     <ClCompile Include="BaseView.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MainMenuView.cpp" />
+    <ClCompile Include="Movable.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

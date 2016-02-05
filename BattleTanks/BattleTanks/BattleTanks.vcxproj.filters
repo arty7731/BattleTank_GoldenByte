@@ -33,8 +33,17 @@
     <ClInclude Include="AllegroCore.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Movable.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEnumeration.h">
+      <Filter>Core</Filter>
+    </ClInclude>
     <ClInclude Include="MainMenuView.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,8 +56,14 @@
     <ClCompile Include="AllegroCore.cpp">
       <Filter>View</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Movable.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
     <ClCompile Include="MainMenuView.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
