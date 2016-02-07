@@ -8,6 +8,7 @@ AllegroCore::AllegroCore()
 	backgroundImage = nullptr;
 	mainFont = nullptr;
 	fpsTimeout = 60;
+	views = new BaseView*[3];
 }
 
 void AllegroCore::Initialize(int width, int height, int r, int g, int b)
@@ -16,9 +17,11 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 
 	// initialize addon
 	al_init_image_addon();
-	al_init_font_addon(); // initialize the font addon
-	al_init_ttf_addon();// initialize the ttf (True Type Font) addon
+	al_init_font_addon();	// initialize the font addon
+	al_init_ttf_addon();	// initialize the ttf (True Type Font) addon
 	
+	al_install_mouse();		// инициализация мыши
+
 	this->width = width;
 	this->height = height;
 
@@ -51,6 +54,11 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_register_event_source(eventQueue, al_get_keyboard_event_source());
 	
 	currentView = new MainMenuView(width, height, backgroundImage, mainFont);
+	//currentView = views[(int)ViewType::MainMenu];
+	views[(int)ViewType::MainMenu] = new MainMenuView(width, height, backgroundImage, mainFont);
+	views[(int)ViewType::GameView] = new GameView(width, height, backgroundImage, mainFont);
+	views[(int)ViewType::AboutMenu] = new AboutView(width, height, backgroundImage, mainFont);
+
 
 	al_clear_to_color(al_map_rgb(r, g, b));	// замена цвета фона
 
@@ -62,7 +70,8 @@ void AllegroCore::Main()
 {
 	al_start_timer(timer);
 	ALLEGRO_EVENT ev;
-	
+	ALLEGRO_MOUSE_STATE state;
+
 	int x = 0, y = 0;
 	
 	//al_convert_mask_to_alpha(mainAtlas, al_map_rgb(0, 0, 0));
@@ -70,17 +79,33 @@ void AllegroCore::Main()
 	while (true)
 	{
 		al_wait_for_event(eventQueue, &ev);
-		
+
+		al_register_event_source(eventQueue, al_get_mouse_event_source());
+
+		al_get_mouse_state(&state);	// считать позицию курсора
+
 		if (ev.type == ALLEGRO_EVENT_TIMER && al_is_event_queue_empty(eventQueue))
 		{
-			//al_draw_bitmap(backgroundImage, 0, 0, 0);
-			//al_draw_text(mainFont, al_map_rgb(255, 255, 255), width/2, 10, ALLEGRO_ALIGN_CENTRE, "Battle Tanks");
-			//al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 100, ALLEGRO_ALIGN_CENTRE, "New GAME");
-			
 			currentView->Update();
-			
 			al_flip_display();
 		}
+
+		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && state.buttons & 1)	// нажата ли левая кнопка мыши?
+		{
+			printf("Mouse position: (%d, %d)\n", state.x, state.y);
+			
+			currentView = views[(int)currentView->CheckSwitchView(state.x, state.y)];
+			currentView->Update();
+			al_flip_display();
+		}
+
+		//if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && state.buttons & 2)	// нажата ли правая кнопка мыши?
+		//{
+		//	printf("Mouse position: (%d, %d)\n", state.x, state.y);
+		//	currentView = new MainMenuView(width, height, backgroundImage, mainFont);
+		//	currentView->Update();
+		//	al_flip_display();
+		//}
 
 
 		if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) break;	// для работы кнопки close

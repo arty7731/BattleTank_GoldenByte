@@ -3,6 +3,8 @@
 #include "Header.h"
 #include "BaseView.h"
 #include "MainMenuView.h"
+#include "AboutView.h"
+#include "GameView.h"
 
 class AllegroCore
 {
@@ -21,6 +23,7 @@ class AllegroCore
 	int fpsTimeout;
 
 	BaseView *currentView;
+	BaseView **views;
 
 public:
 	AllegroCore();

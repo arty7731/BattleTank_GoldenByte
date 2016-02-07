@@ -13,3 +13,11 @@ enum class BulletType
 	Sprlinter,
 	Comulative
 };
+
+enum class ViewType
+{
+	MainMenu,
+	GameView,
+	AboutMenu,
+	SelectGameMode
+};

@@ -51,6 +51,12 @@
     <ClInclude Include="Vector2d.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="AboutView.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="GameView.h">
+      <Filter>View</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -73,6 +79,12 @@
     </ClCompile>
     <ClCompile Include="Vector2d.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutView.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="GameView.cpp">
+      <Filter>View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

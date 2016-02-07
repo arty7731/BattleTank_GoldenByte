@@ -6,9 +6,9 @@ void main()
 
 	try
 	{
-	AllegroCore bTanks;
-	bTanks.Initialize(1280, 720, 0, 0, 0);
-	bTanks.Main();
+	AllegroCore battleTanks;
+	battleTanks.Initialize(1280, 720, 0, 0, 0);
+	battleTanks.Main();
 	}
 	catch (char* messenge)
 	{

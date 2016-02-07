@@ -152,20 +152,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AboutView.h" />
     <ClInclude Include="AllegroHeader.h" />
     <ClInclude Include="AllegroCore.h" />
     <ClInclude Include="BaseView.h" />
     <ClInclude Include="CoreEnumeration.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameView.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="MainMenuView.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="Vector2d.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AboutView.cpp" />
     <ClCompile Include="AllegroCore.cpp" />
     <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameView.cpp" />
     <ClCompile Include="MainMenuView.cpp" />
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="Source.cpp" />
