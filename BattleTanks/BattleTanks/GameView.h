@@ -3,6 +3,10 @@
 
 class GameView : public BaseView
 {
+protected:
+	ALLEGRO_BITMAP *arrowLeft;
+	ALLEGRO_BITMAP *arrowRight;
+	ALLEGRO_BITMAP *menuIcon;
 public:
 	GameView(int width, int height, ALLEGRO_BITMAP *backgroundImage, ALLEGRO_FONT *mainFont);
 

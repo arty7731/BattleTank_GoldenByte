@@ -12,10 +12,20 @@ ViewType MainMenuView::CheckSwitchView(int x, int y)
 	{
 		return ViewType::AboutMenu;
 	}
+	else if (x > 110 && x < 405 && y > 217 && y < 270)
+	{
+		return ViewType::GameView;
+	}
 	else
 	{
 		return ViewType::MainMenu;
 	}
+}
+
+bool MainMenuView::IsExitButton(int x, int y)
+{
+	if (y > 515 && y < 565 && x > 200 && x < 320) return true;
+	else return false;
 }
 
 void MainMenuView::Update()
@@ -25,6 +35,7 @@ void MainMenuView::Update()
 	al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 200, ALLEGRO_ALIGN_CENTRE, "New game");
 	al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 300, ALLEGRO_ALIGN_CENTRE, "Resume");
 	al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 400, ALLEGRO_ALIGN_CENTRE, "About");
+	al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 500, ALLEGRO_ALIGN_CENTRE, "Exit");
 }
 
 MainMenuView::~MainMenuView()

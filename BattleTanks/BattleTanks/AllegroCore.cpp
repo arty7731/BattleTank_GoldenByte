@@ -6,6 +6,7 @@ AllegroCore::AllegroCore()
 	timer = nullptr;
 	eventQueue = nullptr;
 	backgroundImage = nullptr;
+	roadImage = nullptr;
 	mainFont = nullptr;
 	fpsTimeout = 60;
 	views = new BaseView*[3];
@@ -42,6 +43,9 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	backgroundImage = al_load_bitmap("Resources/Images/Menu.jpg");	// картинка фона
 	if (backgroundImage == nullptr) throw "Load image error!";
 
+	roadImage = al_load_bitmap("Resources/Images/Road.jpg");
+	if (roadImage == nullptr) throw "Load image error!";
+
 	al_set_target_bitmap(al_get_backbuffer(display));	// отрисовка в буфер
 
 	backgroundColor.r = r;
@@ -56,7 +60,7 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	currentView = new MainMenuView(width, height, backgroundImage, mainFont);
 	//currentView = views[(int)ViewType::MainMenu];
 	views[(int)ViewType::MainMenu] = new MainMenuView(width, height, backgroundImage, mainFont);
-	views[(int)ViewType::GameView] = new GameView(width, height, backgroundImage, mainFont);
+	views[(int)ViewType::GameView] = new GameView(width, height, roadImage, mainFont);
 	views[(int)ViewType::AboutMenu] = new AboutView(width, height, backgroundImage, mainFont);
 
 
@@ -99,19 +103,9 @@ void AllegroCore::Main()
 			al_flip_display();
 		}
 
-		//if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && state.buttons & 2)	// нажата ли правая кнопка мыши?
-		//{
-		//	printf("Mouse position: (%d, %d)\n", state.x, state.y);
-		//	currentView = new MainMenuView(width, height, backgroundImage, mainFont);
-		//	currentView->Update();
-		//	al_flip_display();
-		//}
-
-
 		if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) break;	// для работы кнопки close
 	}
 }
-
 
 AllegroCore::~AllegroCore()
 {

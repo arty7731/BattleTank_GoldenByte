@@ -14,6 +14,7 @@ class AllegroCore
 	ALLEGRO_COLOR backgroundColor;
 
 	ALLEGRO_BITMAP *backgroundImage;
+	ALLEGRO_BITMAP *roadImage;
 
 	ALLEGRO_FONT *mainFont;
 
