@@ -1,9 +1,10 @@
 #pragma once
+#include "Vector2d.h"
+
 class GameObject
 {
 protected:
-	int X;
-	int Y;
+	Vector2d coord;
 	char objectName;
 
 public:
