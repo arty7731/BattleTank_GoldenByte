@@ -10,9 +10,15 @@ protected:
 	int speed;
 public:
 	Movable();
+	Movable(int x, int y, char objectName, Direction direction, int speed);
 
+	void SetMovabe(Direction direction, int speed);
 	void SetSpeed(int speed);
 	void SetDirection(Direction direction);
 
+	Direction GetDirection() const;
+	int GetSpeed() const;
+
+	virtual void Move() = 0;
 };
 

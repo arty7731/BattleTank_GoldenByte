@@ -51,6 +51,12 @@
     <ClInclude Include="Vector2d.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -73,6 +79,12 @@
     </ClCompile>
     <ClCompile Include="Vector2d.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

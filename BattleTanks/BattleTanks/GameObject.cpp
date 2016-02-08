@@ -13,8 +13,7 @@ GameObject::GameObject(int X, int Y, char objectName)
 
 void GameObject::SetCoords(int X, int Y)
 {
-	this->X = X;
-	this->Y = Y;
+	coord.SetVector2d(X, Y);
 }
 
 void GameObject::SetGameObject(int X, int Y, char objectName)
@@ -25,12 +24,12 @@ void GameObject::SetGameObject(int X, int Y, char objectName)
 
 int GameObject::GetX() const
 {
-	return X;
+	return coord.GetX();
 }
 
 int GameObject::GetY() const
 {
-	return Y;
+	return coord.GetY();
 }
 
 char GameObject::GetObjectName() const
