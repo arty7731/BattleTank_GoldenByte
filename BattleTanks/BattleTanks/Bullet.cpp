@@ -10,7 +10,7 @@ Bullet::Bullet(int x, int y, char objectName, Direction direction, int speed)
 
 }
 
-int Bullet::OptionMove(Tank &tank)
+void Bullet::OptionMove(Tank &tank)
 {
 	coordBullet = tank.GetCoordMuzzle();
 	speed = tank.GetSpeedBullet();

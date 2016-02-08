@@ -51,19 +51,11 @@
     <ClInclude Include="Vector2d.h">
       <Filter>Utils</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="AboutView.h">
       <Filter>View</Filter>
     </ClInclude>
     <ClInclude Include="GameView.h">
       <Filter>View</Filter>
-=======
-    <ClInclude Include="Tank.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Core</Filter>
->>>>>>> Artem
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -88,22 +80,26 @@
     <ClCompile Include="Vector2d.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="AboutView.cpp">
       <Filter>View</Filter>
     </ClCompile>
     <ClCompile Include="GameView.cpp">
       <Filter>View</Filter>
-=======
-    <ClCompile Include="Tank.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Core</Filter>
->>>>>>> Artem
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Bullet.cpp">
+      <Filter>Core</Filter>
+    </None>
+    <None Include="Bullet.h">
+      <Filter>Core</Filter>
+    </None>
+    <None Include="Tank.cpp">
+      <Filter>Core</Filter>
+    </None>
+    <None Include="Tank.h">
+      <Filter>Core</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -17,7 +17,7 @@ public:
 	Bullet();
 	Bullet(int x, int y, char objectName, Direction direction, int speed);
 	
-	int OptionMove(Tank &tank);
+	void OptionMove(Tank &tank);
 
 
 	void Move();
