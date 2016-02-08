@@ -12,18 +12,17 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 	menuIcon = nullptr;
 	menuIcon = al_load_bitmap("Resources/Images/menuIcon.png");
 	if (menuIcon == nullptr) throw "Load menuIcon error!";
+	tankRight = nullptr;
+	tankRight = al_load_bitmap("Resources/Images/tankRight.png");
+	if (tankRight == nullptr) throw "Load tankRight error!";
+	tankLeft = nullptr;
 }
 
 ViewType GameView::CheckSwitchView(int x, int y)
 {
-	if (x > 110 && x > 405 && y > 217 && y > 270)
-	{
-		return ViewType::MainMenu;
-	}
-	else
-	{
+	
 		return ViewType::GameView;
-	}
+	
 }
 
 void GameView::Update()
@@ -35,7 +34,9 @@ void GameView::Update()
 	al_convert_mask_to_alpha(arrowRight, al_map_rgb(0, 0, 0));
 	al_draw_bitmap(menuIcon, 1170, 10, 0);
 	al_convert_mask_to_alpha(menuIcon, al_map_rgb(0, 0, 0));
-	//al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 100, ALLEGRO_ALIGN_CENTRE, "Game is here!");
+	ALLEGRO_BITMAP *sub_bitmap = al_create_sub_bitmap(tankRight, 0, 0, 116, 116);
+	al_draw_bitmap(sub_bitmap, 1100, 450, 0);
+	al_convert_mask_to_alpha(sub_bitmap, al_map_rgb(255, 0, 255));
 }
 
 GameView::~GameView()

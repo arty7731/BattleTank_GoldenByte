@@ -21,7 +21,7 @@ ViewType AboutView::CheckSwitchView(int x, int y)
 void AboutView::Update()
 {
 	al_draw_bitmap(backgroundImage, 0, 0, 0);
-	al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 100, ALLEGRO_ALIGN_CENTRE, "About menu");
+	al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 100, ALLEGRO_ALIGN_CENTRE, "About");
 	al_draw_text(mainFont, al_map_rgb(255, 255, 255), 260, 500, ALLEGRO_ALIGN_CENTRE, "back");
 }
 

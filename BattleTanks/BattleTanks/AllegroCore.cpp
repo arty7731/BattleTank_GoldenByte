@@ -58,7 +58,6 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_register_event_source(eventQueue, al_get_keyboard_event_source());
 	
 	currentView = new MainMenuView(width, height, backgroundImage, mainFont);
-	//currentView = views[(int)ViewType::MainMenu];
 	views[(int)ViewType::MainMenu] = new MainMenuView(width, height, backgroundImage, mainFont);
 	views[(int)ViewType::GameView] = new GameView(width, height, roadImage, mainFont);
 	views[(int)ViewType::AboutMenu] = new AboutView(width, height, backgroundImage, mainFont);
@@ -67,7 +66,6 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_clear_to_color(al_map_rgb(r, g, b));	// замена цвета фона
 
 	al_flip_display();	// подмена экрана буфером
-	//al_rest(5);	// задержка выхода из окна (sleep 5000)
 }
 
 void AllegroCore::Main()
@@ -97,8 +95,9 @@ void AllegroCore::Main()
 		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && state.buttons & 1)	// нажата ли левая кнопка мыши?
 		{
 			printf("Mouse position: (%d, %d)\n", state.x, state.y);
-			
-			currentView = views[(int)currentView->CheckSwitchView(state.x, state.y)];
+			int view = (int)currentView->CheckSwitchView(state.x, state.y);
+			if (view == (int)ViewType::Exit) break;
+			currentView = views[view];
 			currentView->Update();
 			al_flip_display();
 		}

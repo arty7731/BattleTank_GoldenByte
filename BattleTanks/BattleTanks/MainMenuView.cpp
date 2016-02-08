@@ -8,24 +8,22 @@ MainMenuView::MainMenuView(int width, int height, ALLEGRO_BITMAP * backgroundIma
 
 ViewType MainMenuView::CheckSwitchView(int x, int y)
 {
-	if (y > 414 && y < 470 && x > 160 && x < 360)
+	if (y > 414 && y < 470 && x > 160 && x < 360)		// About
 	{
 		return ViewType::AboutMenu;
 	}
-	else if (x > 110 && x < 405 && y > 217 && y < 270)
+	else if (x > 110 && x < 405 && y > 217 && y < 270)	// Game
 	{
 		return ViewType::GameView;
+	}
+	else if (x > 200 && x < 320 && y > 515 && y < 565)	// Exit
+	{
+		return ViewType::Exit;
 	}
 	else
 	{
 		return ViewType::MainMenu;
 	}
-}
-
-bool MainMenuView::IsExitButton(int x, int y)
-{
-	if (y > 515 && y < 565 && x > 200 && x < 320) return true;
-	else return false;
 }
 
 void MainMenuView::Update()

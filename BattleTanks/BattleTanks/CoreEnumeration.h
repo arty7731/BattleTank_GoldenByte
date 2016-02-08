@@ -19,5 +19,6 @@ enum class ViewType
 	MainMenu,
 	GameView,
 	AboutMenu,
-	SelectGameMode
+	SelectGameMode,
+	Exit = 16
 };
