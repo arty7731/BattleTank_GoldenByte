@@ -101,6 +101,11 @@ void AllegroCore::Main()
 			currentView->Update();
 			al_flip_display();
 		}
+		
+		if (ev.type == ALLEGRO_EVENT_KEY_DOWN && ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
+		{
+			currentView = views[(int)ViewType::MainMenu];
+		}
 
 		if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) break;	// для работы кнопки close
 	}
