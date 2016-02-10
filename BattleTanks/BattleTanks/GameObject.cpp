@@ -4,6 +4,8 @@
 
 GameObject::GameObject()
 {
+	coord.SetVector2d(0, 0);
+	objectName = 'E';
 }
 
 GameObject::GameObject(int X, int Y, char objectName)

@@ -74,6 +74,24 @@ Vector2d& Vector2d::operator -= (Vector2d vector)
 	return *this;
 }
 
+Vector2d& Vector2d::operator*(int number)
+{
+	Vector2d tmp;
+	tmp.X = X;
+	tmp.Y = Y;
+
+	tmp.X *= number;
+	tmp.Y *= number;
+	return tmp;
+}
+
+Vector2d& Vector2d::operator*=(int number)
+{
+	this->X *= number;
+	this->Y *= number;
+	return *this;
+}
+
 bool Vector2d::operator == (Vector2d vector)
 {
 	if (this->X == vector.X && this->Y == vector.Y) return true;

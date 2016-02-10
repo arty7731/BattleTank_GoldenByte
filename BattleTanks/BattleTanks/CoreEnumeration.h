@@ -1,10 +1,17 @@
 #pragma once
 
-enum class Direction
+enum class DirectionTank
 {
 	None,
 	Right,
 	Left
+};
+
+enum class DirectionMuzzle
+{
+	None,
+	Up,
+	Down
 };
 
 enum class BulletType
@@ -22,3 +29,11 @@ enum class ViewType
 	SelectGameMode,
 	Exit = 16
 };
+
+enum class CoordTank
+{
+	coordRightSide,
+	coordLeftSide,
+	coordMuzzle
+};
+

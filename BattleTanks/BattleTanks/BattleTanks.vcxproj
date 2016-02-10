@@ -156,31 +156,35 @@
     <ClInclude Include="AllegroHeader.h" />
     <ClInclude Include="AllegroCore.h" />
     <ClInclude Include="BaseView.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="CoreEnumeration.h" />
+    <ClInclude Include="EnemyTank.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameView.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="MainMenuView.h" />
     <ClInclude Include="Movable.h" />
+    <ClInclude Include="PlayerTank.h" />
+    <ClInclude Include="Tank.h" />
     <ClInclude Include="Vector2d.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutView.cpp" />
     <ClCompile Include="AllegroCore.cpp" />
     <ClCompile Include="BaseView.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="EnemyTank.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameView.cpp" />
     <ClCompile Include="MainMenuView.cpp" />
     <ClCompile Include="Movable.cpp" />
+    <ClCompile Include="PlayerTank.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Vector2d.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Bullet.cpp" />
-    <None Include="Bullet.h" />
     <None Include="packages.config" />
-    <None Include="Tank.cpp" />
-    <None Include="Tank.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

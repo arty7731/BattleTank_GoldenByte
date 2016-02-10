@@ -1,25 +1,25 @@
 #pragma once
 #include "Movable.h"
-#include "Vector2d.h"
-#include "Tank.h"
 
-#include "Header.h"
 
-class Bullet : public Movable
+class Bullet : 
+	public Movable
 {
 protected:
 	Vector2d coordBullet;
 	Vector2d speed;
 	Vector2d acceleration;
 
+	int forse;
+	int angle;
 
 public:
 	Bullet();
-	Bullet(int x, int y, char objectName, Direction direction, int speed);
+	Bullet(int X, int Y, char objectName, int speed);
 	
-	void OptionMove(Tank &tank);
+	void OptionMove(Vector2d coordMuzzle, int forse, int angle);
 
 
-	void Move();
+	virtual void Move();
 
 };

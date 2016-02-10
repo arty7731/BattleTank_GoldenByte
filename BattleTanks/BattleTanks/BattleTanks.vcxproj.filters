@@ -36,15 +36,6 @@
     <ClInclude Include="AllegroCore.h">
       <Filter>View</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Movable.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="CoreEnumeration.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="MainMenuView.h">
       <Filter>View</Filter>
     </ClInclude>
@@ -57,6 +48,27 @@
     <ClInclude Include="GameView.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTank.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Movable.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerTank.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEnumeration.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -67,12 +79,6 @@
     </ClCompile>
     <ClCompile Include="AllegroCore.cpp">
       <Filter>View</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Movable.cpp">
-      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="MainMenuView.cpp">
       <Filter>View</Filter>
@@ -86,20 +92,26 @@
     <ClCompile Include="GameView.cpp">
       <Filter>View</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyTank.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Movable.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerTank.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Bullet.cpp">
-      <Filter>Core</Filter>
-    </None>
-    <None Include="Bullet.h">
-      <Filter>Core</Filter>
-    </None>
-    <None Include="Tank.cpp">
-      <Filter>Core</Filter>
-    </None>
-    <None Include="Tank.h">
-      <Filter>Core</Filter>
-    </None>
   </ItemGroup>
 </Project>

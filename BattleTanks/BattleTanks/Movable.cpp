@@ -4,34 +4,18 @@
 
 Movable::Movable()
 {
-	direction = Direction::None;
+	speed = 0;
 }
 
-Movable::Movable(int x, int y, char objectName, Direction direction, int speed)
-	: GameObject(x, y, objectName)
+Movable::Movable(int X, int Y, char objectName, int speed)
+	: GameObject(X, Y, objectName)
 {
-	SetMovabe(direction, speed);
-}
-
-void Movable::SetMovabe(Direction direction, int speed)
-{
-	SetDirection(direction);
 	SetSpeed(speed);
 }
 
 void Movable::SetSpeed(int speed)
 {
 	this->speed = speed;
-}
-
-void Movable::SetDirection(Direction direction)
-{
-	this->direction = direction;
-}
-
-Direction Movable::GetDirection() const
-{
-	return direction;
 }
 
 int Movable::GetSpeed() const

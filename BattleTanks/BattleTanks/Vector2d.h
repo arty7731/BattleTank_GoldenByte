@@ -1,4 +1,5 @@
 #pragma once
+
 class Vector2d
 {
 	int X;
@@ -19,6 +20,9 @@ public:
 
 	Vector2d& operator - (Vector2d vector);
 	Vector2d& operator -= (Vector2d vector);
+
+	Vector2d& operator * (int number);
+	Vector2d& operator *= (int number);
 
 	bool operator == (Vector2d vector);
 	bool operator != (Vector2d vector);
