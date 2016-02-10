@@ -20,4 +20,3 @@ public:
 
 	virtual ~GameObject() = 0;
 };
-
