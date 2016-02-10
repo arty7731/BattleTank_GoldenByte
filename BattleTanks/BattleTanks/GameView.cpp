@@ -16,14 +16,20 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 	tankRight = al_load_bitmap("Resources/Images/tankRight.png");
 	if (tankRight == nullptr) throw "Load tankRight error!";
 	tankLeft = nullptr;
+
+	al_convert_mask_to_alpha(tankRight, al_map_rgb(41, 41, 41));
+	tankSprite = new SpriteContainer(tankRight, 0, 0, 180, 175, 9);
+	
 }
 
 ViewType GameView::CheckSwitchView(int x, int y)
 {
 	
-		return ViewType::GameView;
+	return ViewType::GameView;
 	
 }
+
+bool flag = false;
 
 void GameView::Update()
 {
@@ -34,9 +40,28 @@ void GameView::Update()
 	al_convert_mask_to_alpha(arrowRight, al_map_rgb(0, 0, 0));
 	al_draw_bitmap(menuIcon, 1170, 10, 0);
 	al_convert_mask_to_alpha(menuIcon, al_map_rgb(0, 0, 0));
-	ALLEGRO_BITMAP *sub_bitmap = al_create_sub_bitmap(tankRight, 0, 0, 116, 116);
-	al_draw_bitmap(sub_bitmap, 1100, 450, 0);
-	al_convert_mask_to_alpha(sub_bitmap, al_map_rgb(255, 0, 255));
+	//ALLEGRO_BITMAP *sub_bitmap = al_create_sub_bitmap(tankRight, 0, 0, 116, 116);
+	//al_draw_bitmap(sub_bitmap, 1100, 450, 0);	
+
+	ALLEGRO_BITMAP *sub_bitmap;
+
+	if (flag)
+	{
+		sub_bitmap = tankSprite->GetNextFrame();		
+	}
+	else
+	{
+		sub_bitmap = tankSprite->GetPrevFrame();
+	}
+
+	if (sub_bitmap == nullptr)
+	{
+		flag = !flag;
+	}
+	else
+	{
+		al_draw_bitmap(sub_bitmap, 1100, 450, 0);	
+	}
 }
 
 GameView::~GameView()

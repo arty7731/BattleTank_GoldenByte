@@ -165,6 +165,7 @@
     <ClInclude Include="MainMenuView.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="PlayerTank.h" />
+    <ClInclude Include="SpriteContainer.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="Vector2d.h" />
   </ItemGroup>
@@ -180,6 +181,7 @@
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="PlayerTank.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="SpriteContainer.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Vector2d.cpp" />
   </ItemGroup>
