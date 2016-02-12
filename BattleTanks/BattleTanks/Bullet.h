@@ -15,7 +15,7 @@ protected:
 
 public:
 	Bullet();
-	Bullet(int X, int Y, char objectName, int speed);
+	Bullet(int X, int Y, char objectName, int speed, Direction direction);
 	
 	void OptionMove(Vector2d coordMuzzle, int forse, int angle);
 

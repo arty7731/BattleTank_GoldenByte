@@ -7,6 +7,15 @@ enum class DirectionTank
 	Left
 };
 
+enum class Direction
+{
+	None,
+	Right,
+	Left,
+	Up,
+	Down
+};
+
 enum class DirectionMuzzle
 {
 	None,
@@ -28,12 +37,5 @@ enum class ViewType
 	AboutMenu,
 	SelectGameMode,
 	Exit = 16
-};
-
-enum class CoordTank
-{
-	coordRightSide,
-	coordLeftSide,
-	coordMuzzle
 };
 

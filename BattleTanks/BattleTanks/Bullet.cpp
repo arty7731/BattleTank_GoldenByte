@@ -4,8 +4,8 @@ Bullet::Bullet()
 {
 }
 
-Bullet::Bullet(int X, int Y, char objectName, int speed)
-	: Movable(X, Y, objectName, speed)
+Bullet::Bullet(int X, int Y, char objectName, int speed, Direction direction)
+	: Movable(X, Y, objectName, speed, direction)
 {
 
 }

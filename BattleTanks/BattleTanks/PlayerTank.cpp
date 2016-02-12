@@ -5,8 +5,8 @@ PlayerTank::PlayerTank()
 
 }
 
-PlayerTank::PlayerTank(int X, int Y, char objectName, int speed, int rx, int ry, int lx, int ly, int mx, int my)
-	: Tank(X, Y, objectName, speed, rx, ry, lx, ly, mx, my)
+PlayerTank::PlayerTank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my)
+	: Tank(X, Y, objectName, speed, direction, mx, my)
 {
 }
 

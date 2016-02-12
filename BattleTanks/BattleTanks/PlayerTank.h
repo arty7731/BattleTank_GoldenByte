@@ -8,8 +8,7 @@ class PlayerTank :
 public:
 	PlayerTank();
 
-	PlayerTank(int X, int Y, char objectName, int speed,
-		int rx, int ry, int lx, int ly, int mx, int my);
+	PlayerTank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my);
 
 	int ChoiceFighter();
 	virtual void Move();

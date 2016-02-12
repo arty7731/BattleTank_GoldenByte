@@ -60,7 +60,7 @@ void GameView::Update()
 	}
 	else
 	{
-		al_draw_bitmap(sub_bitmap, 1100, 450, 0);	
+		al_draw_bitmap(sub_bitmap, 1000, 310, 0);	
 	}
 }
 

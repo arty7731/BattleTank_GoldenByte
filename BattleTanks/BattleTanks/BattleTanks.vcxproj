@@ -159,9 +159,12 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="CoreEnumeration.h" />
     <ClInclude Include="EnemyTank.h" />
+    <ClInclude Include="Environment.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameView.h" />
+    <ClInclude Include="Ground.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="MainMenuView.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="PlayerTank.h" />
@@ -175,8 +178,11 @@
     <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="EnemyTank.cpp" />
+    <ClCompile Include="Environment.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameView.cpp" />
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="MainMenuView.cpp" />
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="PlayerTank.cpp" />

@@ -5,27 +5,18 @@ class Tank :
 	public Movable
 {
 protected:
-	Vector2d coordTank[3];
+	Vector2d coordMuzzle;
 
 	Vector2d speedBullet;
 	Vector2d accelerationFire;
 
 public:
 	Tank();
-	Tank(int X, int Y, char objectName, int speed,
-		int rx, int ry, int lx, int ly, int mx, int my);
-
-	void SetCoordRightSide(int X, int Y);
-	void SetCoordRightSide(Vector2d coord);
-
-	void SetCoordLeftSide(int X, int Y);
-	void SetCoordLeftSide(Vector2d coord);
+	Tank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my);
 
 	void SetCoordMuzzle(int X, int Y);
 	void SetCoordMuzzle(Vector2d coord);
 
-	Vector2d GetCoordLeftSide() const;
-	Vector2d GetCoordRightSide() const;
 	Vector2d GetCoordMuzzle() const;
 	Vector2d GetSpeedBullet() const;
 	Vector2d GetAccelerationFire() const;

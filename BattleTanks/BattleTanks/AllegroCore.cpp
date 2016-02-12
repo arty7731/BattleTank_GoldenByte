@@ -40,10 +40,10 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	mainFont = al_load_ttf_font("Resources/Fonts/BRUX.ttf", 60, 0);
 	if (mainFont == nullptr) throw "Font creation error!";
 
-	backgroundImage = al_load_bitmap("Resources/Images/Menu.jpg");	// картинка фона
+	backgroundImage = al_load_bitmap("Resources/Images/Menu.png");	// картинка фона
 	if (backgroundImage == nullptr) throw "Load image error!";
 
-	roadImage = al_load_bitmap("Resources/Images/Road.jpg");
+	roadImage = al_load_bitmap("Resources/Images/level -1.png");
 	if (roadImage == nullptr) throw "Load image error!";
 
 	al_set_target_bitmap(al_get_backbuffer(display));	// отрисовка в буфер
