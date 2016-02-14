@@ -1,4 +1,5 @@
 #include "PlayerTank.h"
+#include "Environment.h"
 
 PlayerTank::PlayerTank()
 {
@@ -16,5 +17,20 @@ int PlayerTank::ChoiceFighter()
 }
 
 void PlayerTank::Move()
+{
+	switch (direction)
+	{
+	case Direction::None:
+		break;
+	case Direction::Right:
+		coord.SetX(coord.GetX() - 3);
+		break;
+	case Direction::Left:
+		coord.SetX(coord.GetX() + 3);
+		break;
+	}
+}
+
+void ChangeDirection()
 {
 }

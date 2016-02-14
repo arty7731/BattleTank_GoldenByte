@@ -7,4 +7,5 @@ EnemyTank::EnemyTank(int X, int Y, char objectName, int speed, Direction directi
 
 void EnemyTank::Move()
 {
+	//TODO move enemy tank
 }

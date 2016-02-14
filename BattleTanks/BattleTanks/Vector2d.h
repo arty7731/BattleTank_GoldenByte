@@ -17,9 +17,12 @@ public:
 
 	Vector2d& operator + (Vector2d vector);
 	Vector2d& operator += (Vector2d vector);
+	Vector2d& operator += (int number);
+
 
 	Vector2d& operator - (Vector2d vector);
 	Vector2d& operator -= (Vector2d vector);
+	Vector2d& operator -= (int number);
 
 	Vector2d& operator * (int number);
 	Vector2d& operator *= (int number);

@@ -17,6 +17,7 @@ public:
 
 	void SetDirection(Direction direction);
 	Direction GetDirection() const;
+	virtual void ChangeDirection() = 0;
 
 	virtual void Move() = 0;
 };

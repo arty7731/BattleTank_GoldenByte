@@ -21,7 +21,10 @@ public:
 	Vector2d GetSpeedBullet() const;
 	Vector2d GetAccelerationFire() const;
 
-	virtual void Move() {}
+	virtual void ChangeDirection();
+	void MuzzleUp();
+	void MuzzleDown();
+	virtual void Move() = 0;
 	virtual int ChoiceFighter();
 	virtual void Fire(Vector2d speedBullet, Vector2d accelerationFire);
 };

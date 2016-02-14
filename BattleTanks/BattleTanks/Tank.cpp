@@ -33,6 +33,29 @@ Vector2d Tank::GetAccelerationFire() const
 	return accelerationFire;
 }
 
+void Tank::ChangeDirection()
+{
+	switch (direction)
+	{
+	case Direction::Right:
+		direction = Direction::None;
+		break;
+	case Direction::Left:
+		direction = Direction::None;
+		break;
+	}
+}
+
+void Tank::MuzzleUp()
+{
+	coordMuzzle += 10;
+}
+
+void Tank::MuzzleDown()
+{
+	coordMuzzle -= 10;
+}
+
 int Tank::ChoiceFighter()
 {
 	return 2;

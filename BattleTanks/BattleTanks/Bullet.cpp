@@ -29,11 +29,33 @@ void Bullet::OptionMove(Vector2d coordMuzzle, int forse, int angle)
 
 }
 
+void Bullet::ChangeDirection()
+{
+	switch (direction)
+	{
+	case Direction::Right:
+		direction = Direction::Left;
+		break;
+	case Direction::Left:
+		direction = Direction::Right;
+		break;
+	}
+}
+
 void Bullet::Move()
 {
-	while (coordBullet.GetY() <= 0)
+	switch (direction)
 	{
-		coordBullet += speed;
-		speed += acceleration;
+	case Direction::Right:
+		while (coordBullet.GetY() <= 0)
+		{
+			coordBullet += speed;
+			speed += acceleration;
+		}
+		break;
+	case Direction::Left:
+		//TODO direction left
+		break;
 	}
+
 }

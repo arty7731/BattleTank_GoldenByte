@@ -56,6 +56,13 @@ Vector2d& Vector2d::operator+=(Vector2d vector)
 	return *this;
 }
 
+Vector2d & Vector2d::operator+=(int number)
+{
+	X += number;
+	Y += number;
+	return *this;
+}
+
 Vector2d& Vector2d::operator - (Vector2d vector)
 {
 	Vector2d tmp;
@@ -71,6 +78,13 @@ Vector2d& Vector2d::operator -= (Vector2d vector)
 {
 	this->X -= vector.X;
 	this->Y -= vector.Y;
+	return *this;
+}
+
+Vector2d & Vector2d::operator-=(int number)
+{
+	X -= number;
+	Y -= number;
 	return *this;
 }
 

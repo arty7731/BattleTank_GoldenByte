@@ -1,7 +1,6 @@
 #include "Level.h"
 
 
-
 void Level::Initialization()
 {
 	objects = new GameObject*[objectCount + 2 + 1];
@@ -40,7 +39,7 @@ void Level::LevelTimerTick()
 			if (movable[i]->GetX() <= 0 || movable[i]->GetX() >= width - 1
 				|| movable[i]->GetY() <= 0 || movable[i]->GetY() >= height - 1)
 			{
-				//movable[i]->ChangeDirection();
+				movable[i]->SetDirection(Direction::None);
 			}
 		}
 	}
