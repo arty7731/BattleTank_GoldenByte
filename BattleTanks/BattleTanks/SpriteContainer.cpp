@@ -17,6 +17,16 @@ void SpriteContainer::SetCurrentFrame(int index)
 	currentFrameIndex = index;
 }
 
+ALLEGRO_BITMAP* SpriteContainer::GetFrameByIndex(int index)
+{
+	return sprites[index];
+}
+
+ALLEGRO_BITMAP* SpriteContainer::GetCurrentFrame()
+{
+	return sprites[currentFrameIndex];
+}
+
 ALLEGRO_BITMAP* SpriteContainer::GetNextFrame()
 {
 	if (currentFrameIndex + 1 < sprites.size())

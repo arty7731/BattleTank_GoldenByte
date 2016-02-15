@@ -6,6 +6,11 @@ MainMenuView::MainMenuView(int width, int height, ALLEGRO_BITMAP * backgroundIma
 
 }
 
+ViewType MainMenuView::GetViewType() const
+{
+	return ViewType::MainMenu;
+}
+
 ViewType MainMenuView::CheckSwitchView(int x, int y)
 {
 	if (y > 414 && y < 470 && x > 160 && x < 360)		// About

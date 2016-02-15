@@ -13,6 +13,8 @@ public:
 	void SetCurrentFrame(int index);
 	ALLEGRO_BITMAP* GetNextFrame();
 	ALLEGRO_BITMAP* GetPrevFrame();
+	ALLEGRO_BITMAP* GetCurrentFrame();
+	ALLEGRO_BITMAP* GetFrameByIndex(int index);
 
 	~SpriteContainer();
 };

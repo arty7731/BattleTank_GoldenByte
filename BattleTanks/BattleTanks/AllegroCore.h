@@ -5,6 +5,8 @@
 #include "MainMenuView.h"
 #include "AboutView.h"
 #include "GameView.h"
+#include "Level.h"
+#include "KeyboardController.h"
 
 class AllegroCore
 {
@@ -17,6 +19,8 @@ class AllegroCore
 	ALLEGRO_BITMAP *roadImage;
 
 	ALLEGRO_FONT *mainFont;
+
+	Level *firstLevel;
 
 	int width;
 	int height;

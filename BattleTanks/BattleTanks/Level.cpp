@@ -11,7 +11,7 @@ void Level::Initialization()
 	{
 		objects[counter] = nullptr;
 	}
-	movable[counter] = new PlayerTank(10, 10, 'P', 3, Direction::None, 10, 15);
+	movable[counter] = new PlayerTank(1000, 310, 'P', 3, Direction::None, 10, 15);
 	objects[counter] = movable[counter++];
 	movable[counter] = new EnemyTank(100, 10, 'E', 3, Direction::None, 100, 15);
 	objects[counter] = movable[counter++];
@@ -28,6 +28,8 @@ Level::Level(int width, int height, int objectCount)
 	this->height = height;
 	this->width = width;
 	this->objectCount = objectCount;
+
+	Initialization();
 }
 
 
@@ -52,8 +54,8 @@ Tank * Level::GetPlayerTank() const
 {
 	for (int i = 0; i < 2 + 1; i++)
 	{
-	Tank *tank = dynamic_cast<Tank*>(movable[i]);
-	if(tank != nullptr && tank->IsPlayerTank()) return tank;
+		Tank *tank = dynamic_cast<Tank*>(movable[i]);
+		if(tank != nullptr && tank->IsPlayerTank()) return tank;
 	}
 
 }

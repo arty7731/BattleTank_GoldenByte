@@ -164,6 +164,7 @@
     <ClInclude Include="GameView.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainMenuView.h" />
     <ClInclude Include="Movable.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameView.cpp" />
     <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="MainMenuView.cpp" />
     <ClCompile Include="Movable.cpp" />

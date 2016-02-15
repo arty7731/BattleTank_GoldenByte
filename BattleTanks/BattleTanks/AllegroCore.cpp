@@ -66,10 +66,16 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_clear_to_color(al_map_rgb(r, g, b));	// замена цвета фона
 
 	al_flip_display();	// подмена экрана буфером
+
+	firstLevel = new Level(width, height, 0);
 }
+
+
 
 void AllegroCore::Main()
 {
+	KeyboardController keyControl;
+
 	al_start_timer(timer);
 	ALLEGRO_EVENT ev;
 	ALLEGRO_MOUSE_STATE state;
@@ -95,16 +101,33 @@ void AllegroCore::Main()
 		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && state.buttons & 1)	// нажата ли левая кнопка мыши?
 		{
 			printf("Mouse position: (%d, %d)\n", state.x, state.y);
-			int view = (int)currentView->CheckSwitchView(state.x, state.y);
-			if (view == (int)ViewType::Exit) break;
-			currentView = views[view];
-			currentView->Update();
-			al_flip_display();
+			ViewType view = currentView->CheckSwitchView(state.x, state.y);
+			if (view == ViewType::Exit) break;
+			
+			// произошло переключение на другое меню
+			if (currentView->GetViewType() != (ViewType)view)
+			{
+				currentView = views[(int)view];
+
+				// произошло переключение на геймлей (игровой уровень)
+				if (view == ViewType::GameView)
+				{
+					((GameView*)currentView)->StartLevel(firstLevel);
+				}
+			}	
 		}
 		
-		if (ev.type == ALLEGRO_EVENT_KEY_DOWN && ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
+		if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
 		{
-			currentView = views[(int)ViewType::MainMenu];
+			if (ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
+			{
+				currentView = views[(int)ViewType::MainMenu];
+			}
+
+			if (currentView->GetViewType() == ViewType::GameView)
+			{
+				((GameView*)currentView)->SetDirection(keyControl.GetDirection(ev));
+			}
 		}
 
 		if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) break;	// для работы кнопки close

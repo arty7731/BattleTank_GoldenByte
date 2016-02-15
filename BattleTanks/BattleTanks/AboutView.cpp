@@ -6,6 +6,11 @@ AboutView::AboutView(int width, int height, ALLEGRO_BITMAP * backgroundImage, AL
 
 }
 
+ViewType AboutView::GetViewType() const
+{
+	return ViewType::AboutMenu;
+}
+
 ViewType AboutView::CheckSwitchView(int x, int y)
 {
 	if (x > 190 && x < 330 && y > 515 && y < 566)
