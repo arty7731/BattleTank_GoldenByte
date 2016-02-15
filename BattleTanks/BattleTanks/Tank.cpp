@@ -56,6 +56,11 @@ void Tank::MuzzleDown()
 	coordMuzzle -= 10;
 }
 
+bool Tank::IsPlayerTank()
+{
+	return false;
+}
+
 int Tank::ChoiceFighter()
 {
 	return 2;

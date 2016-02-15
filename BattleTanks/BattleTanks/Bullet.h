@@ -20,6 +20,7 @@ public:
 	void OptionMove(Vector2d coordMuzzle, int forse, int angle);
 	void ChangeDirection();
 
+	bool IsBullet() const;
 	virtual void Move();
 
 };

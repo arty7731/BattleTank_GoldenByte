@@ -42,6 +42,11 @@ void Bullet::ChangeDirection()
 	}
 }
 
+bool Bullet::IsBullet() const
+{
+	return true;
+}
+
 void Bullet::Move()
 {
 	switch (direction)

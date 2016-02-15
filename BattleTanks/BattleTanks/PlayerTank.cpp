@@ -16,6 +16,11 @@ int PlayerTank::ChoiceFighter()
 	return 1;
 }
 
+bool PlayerTank::IsPlayerTank()
+{
+	return true;
+}
+
 void PlayerTank::Move()
 {
 	switch (direction)

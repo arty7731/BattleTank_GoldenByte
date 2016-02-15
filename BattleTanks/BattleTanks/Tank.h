@@ -24,6 +24,7 @@ public:
 	virtual void ChangeDirection();
 	void MuzzleUp();
 	void MuzzleDown();
+	virtual bool IsPlayerTank();
 	virtual void Move() = 0;
 	virtual int ChoiceFighter();
 	virtual void Fire(Vector2d speedBullet, Vector2d accelerationFire);

@@ -23,6 +23,9 @@ public:
 
 	//API
 	void LevelTimerTick();
+	Tank* GetPlayerTank() const;
+	Tank* GetEnemyTank() const;
+	Bullet* GetBullet() const;
 
 	~Level();
 };
