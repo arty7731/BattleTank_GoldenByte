@@ -129,6 +129,13 @@ void AllegroCore::Main()
 				((GameView*)currentView)->SetDirection(keyControl.GetDirection(ev));
 			}
 		}
+		if (ev.type == ALLEGRO_EVENT_KEY_UP)
+		{
+			if (currentView->GetViewType() == ViewType::GameView)
+			{
+				((GameView*)currentView)->SetDirection(keyControl.GetDirection(ev));
+			}
+		}
 
 		if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) break;	// для работы кнопки close
 	}

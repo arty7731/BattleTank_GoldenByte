@@ -48,11 +48,13 @@ void Tank::ChangeDirection()
 
 void Tank::MuzzleUp()
 {
+	if (GetCoordMuzzle().GetX() + 10 > 80) return;
 	coordMuzzle += 10;
 }
 
 void Tank::MuzzleDown()
 {
+	if (GetCoordMuzzle().GetX() - 10 < 0) return;
 	coordMuzzle -= 10;
 }
 

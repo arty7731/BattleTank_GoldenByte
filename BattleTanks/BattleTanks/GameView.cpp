@@ -24,9 +24,7 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 
 ViewType GameView::CheckSwitchView(int x, int y)
 {
-	
-	return ViewType::GameView;
-	
+	return ViewType::GameView;	
 }
 
 ViewType GameView::GetViewType() const
@@ -43,6 +41,14 @@ bool flag = false;
 
 void GameView::Update()
 {
+	currentLevel->LevelTimerTick();
+
+	DrawUI();
+	DrawTanks();
+}
+
+void GameView::DrawUI()
+{
 	// UI elements
 	al_draw_bitmap(backgroundImage, 0, 0, 0);
 	al_draw_bitmap(arrowLeft, 20, 580, 0);
@@ -51,13 +57,6 @@ void GameView::Update()
 	al_convert_mask_to_alpha(arrowRight, al_map_rgb(0, 0, 0));
 	al_draw_bitmap(menuIcon, 1170, 10, 0);
 	al_convert_mask_to_alpha(menuIcon, al_map_rgb(0, 0, 0));
-
-	//ALLEGRO_BITMAP *sub_bitmap = al_create_sub_bitmap(tankRight, 0, 0, 116, 116);
-	//al_draw_bitmap(sub_bitmap, 1100, 450, 0);	
-
-	currentLevel->LevelTimerTick();
-
-	DrawTanks();
 }
 
 void GameView::DrawTanks()
@@ -65,16 +64,12 @@ void GameView::DrawTanks()
 	ALLEGRO_BITMAP *sub_bitmap;
 
 	Tank* playerTank = currentLevel->GetPlayerTank();
+	Tank* enemyTank = currentLevel->GetEnemyTank();
+
 	sub_bitmap = tankSprite->GetFrameByIndex(playerTank->GetCoordMuzzle().GetY() / 10);
 	
-	int dir = 0;
-	if(playerTank->GetDirection() == Direction::Right)
-	{
-		dir = ALLEGRO_FLIP_HORIZONTAL;
-	}
-
-	al_draw_bitmap(sub_bitmap, playerTank->GetX(), playerTank->GetY(), dir);
-
+	al_draw_bitmap(sub_bitmap, playerTank->GetX(), playerTank->GetY(), 0);
+	al_draw_bitmap(sub_bitmap, enemyTank->GetX(), enemyTank->GetY(), ALLEGRO_FLIP_HORIZONTAL);
 	/*if (flag)
 	{
 		sub_bitmap = tankSprite->GetNextFrame();

@@ -17,6 +17,7 @@ protected:
 	Level* currentLevel;
 
 	void DrawTanks();
+	void DrawUI();
 
 public:
 	GameView(int width, int height, ALLEGRO_BITMAP *backgroundImage, ALLEGRO_FONT *mainFont);

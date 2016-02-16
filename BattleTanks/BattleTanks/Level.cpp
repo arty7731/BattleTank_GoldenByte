@@ -41,7 +41,7 @@ void Level::LevelTimerTick()
 		{
 			movable[i]->Move();
 
-			if (movable[i]->GetX() <= 0 || movable[i]->GetX() >= width - 1
+			if (movable[i]->GetX() <= 0 || movable[i]->GetX() >= width - 181
 				|| movable[i]->GetY() <= 0 || movable[i]->GetY() >= height - 1)
 			{
 				movable[i]->SetDirection(Direction::None);
