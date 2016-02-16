@@ -2,6 +2,8 @@
 
 SpriteContainer::SpriteContainer(ALLEGRO_BITMAP* atlas, int startX, int startY, int width, int height, int count)
 {
+	SetFrameHeight(height);
+	SetFrameWidth(width);
 	for (int i = 0; i < count; i++)
 	{
 		ALLEGRO_BITMAP* s = al_create_sub_bitmap(atlas, startX, startY, width, height);
@@ -34,6 +36,26 @@ ALLEGRO_BITMAP* SpriteContainer::GetFrameByIndex(int index)
 	{
 		return sprites[index];
 	}
+}
+
+void SpriteContainer::SetFrameWidth(int width)
+{
+	this->frameWidth = width;
+}
+
+int SpriteContainer::GetFrameWidth() const
+{
+	return this->frameWidth;
+}
+
+void SpriteContainer::SetFrameHeight(int height)
+{
+	this->frameHeight = height;
+}
+
+int SpriteContainer::GetFrameHeight() const
+{
+	return frameHeight;
 }
 
 ALLEGRO_BITMAP* SpriteContainer::GetCurrentFrame()

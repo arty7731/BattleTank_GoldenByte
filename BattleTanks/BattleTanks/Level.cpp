@@ -32,6 +32,16 @@ Level::Level(int width, int height, int objectCount)
 	Initialization();
 }
 
+int Level::GetWidth() const
+{
+	return width;
+}
+
+int Level::GetHeigth() const
+{
+	return height;
+}
+
 
 void Level::LevelTimerTick()
 {
@@ -41,8 +51,8 @@ void Level::LevelTimerTick()
 		{
 			movable[i]->Move();
 
-			if (movable[i]->GetX() <= 0 || movable[i]->GetX() >= width - 181
-				|| movable[i]->GetY() <= 0 || movable[i]->GetY() >= height - 1)
+			if (movable[i]->GetX() < 0 || movable[i]->GetX() >= width - 180
+				|| movable[i]->GetY() <= 0 || movable[i]->GetY() >= height)
 			{
 				movable[i]->SetDirection(Direction::None);
 			}

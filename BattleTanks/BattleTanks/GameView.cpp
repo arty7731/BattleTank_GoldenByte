@@ -71,25 +71,17 @@ void GameView::DrawTanks()
 	sub_bitmap_player = tankSprite->GetFrameByIndex(playerTank->GetCoordMuzzle().GetY() / 10);
 	sub_bitmap_enemy = tankSprite->GetFrameByIndex(enemyTank->GetCoordMuzzle().GetY() / 10);
 	
+	if (playerTank->GetX() < 0)
+	{
+		playerTank->SetCoords(0, playerTank->GetY());
+	}
+	if ( playerTank->GetX() > ( currentLevel->GetWidth() - tankSprite->GetFrameWidth() ) )
+	{
+		playerTank->SetCoords( (currentLevel->GetWidth() - tankSprite->GetFrameWidth() ), playerTank->GetY() );
+	}
 	al_draw_bitmap(sub_bitmap_player, playerTank->GetX(), playerTank->GetY(), 0);
 	al_draw_bitmap(sub_bitmap_enemy, enemyTank->GetX(), enemyTank->GetY(), ALLEGRO_FLIP_HORIZONTAL);
-	/*if (flag)
-	{
-		sub_bitmap = tankSprite->GetNextFrame();
-	}
-	else
-	{
-		sub_bitmap = tankSprite->GetPrevFrame();
-	}
-
-	if (sub_bitmap == nullptr)
-	{
-		flag = !flag;
-	}
-	else
-	{
-		al_draw_bitmap(sub_bitmap, 1000, 310, 0);
-	}*/
+	
 }
 
 void GameView::SetDirection(Direction dir)

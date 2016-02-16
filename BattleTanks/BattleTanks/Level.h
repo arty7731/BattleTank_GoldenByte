@@ -21,6 +21,9 @@ public:
 	Level();
 	Level(int width, int height, int objectCount);
 
+	int GetWidth() const;
+	int GetHeigth() const;
+
 	//API
 	void LevelTimerTick();
 	Tank* GetPlayerTank() const;
