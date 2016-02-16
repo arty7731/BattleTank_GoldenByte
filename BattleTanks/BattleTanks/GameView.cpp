@@ -61,15 +61,18 @@ void GameView::DrawUI()
 
 void GameView::DrawTanks()
 {
-	ALLEGRO_BITMAP *sub_bitmap;
+	ALLEGRO_BITMAP *sub_bitmap_player;
+	ALLEGRO_BITMAP *sub_bitmap_enemy;
+
 
 	Tank* playerTank = currentLevel->GetPlayerTank();
 	Tank* enemyTank = currentLevel->GetEnemyTank();
 
-	sub_bitmap = tankSprite->GetFrameByIndex(playerTank->GetCoordMuzzle().GetY() / 10);
+	sub_bitmap_player = tankSprite->GetFrameByIndex(playerTank->GetCoordMuzzle().GetY() / 10);
+	sub_bitmap_enemy = tankSprite->GetFrameByIndex(enemyTank->GetCoordMuzzle().GetY() / 10);
 	
-	al_draw_bitmap(sub_bitmap, playerTank->GetX(), playerTank->GetY(), 0);
-	al_draw_bitmap(sub_bitmap, enemyTank->GetX(), enemyTank->GetY(), ALLEGRO_FLIP_HORIZONTAL);
+	al_draw_bitmap(sub_bitmap_player, playerTank->GetX(), playerTank->GetY(), 0);
+	al_draw_bitmap(sub_bitmap_enemy, enemyTank->GetX(), enemyTank->GetY(), ALLEGRO_FLIP_HORIZONTAL);
 	/*if (flag)
 	{
 		sub_bitmap = tankSprite->GetNextFrame();
