@@ -11,6 +11,7 @@ protected:
 	ALLEGRO_BITMAP *menuIcon;
 	ALLEGRO_BITMAP *tankRight;
 	ALLEGRO_BITMAP *tankLeft;
+	ALLEGRO_BITMAP *bullet;
 
 	SpriteContainer *tankSprite;
 
@@ -20,6 +21,8 @@ protected:
 
 	void DrawTanks();
 	void DrawUI();
+	void BorderLevel(Tank &tank);
+	void DrawBullet(Tank &tank);
 
 public:
 	GameView(int width, int height, ALLEGRO_BITMAP *backgroundImage, ALLEGRO_FONT *mainFont);

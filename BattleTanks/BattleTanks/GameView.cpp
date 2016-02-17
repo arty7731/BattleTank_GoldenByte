@@ -20,6 +20,9 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 	al_convert_mask_to_alpha(tankRight, al_map_rgb(41, 41, 41));
 	tankSprite = new SpriteContainer(tankRight, 0, 0, 180, 175, 9);
 	
+	bullet = al_load_bitmap("Resources/Images/bullet.png");
+	if (bullet == nullptr) throw "Load bullet error!";
+
 	whatFire = 2;
 }
 
@@ -60,6 +63,24 @@ void GameView::DrawUI()
 	al_convert_mask_to_alpha(menuIcon, al_map_rgb(0, 0, 0));
 }
 
+void GameView::BorderLevel(Tank & tank)
+{
+	if (tank.GetX() < 0)
+	{
+		tank.SetX(0);
+	}
+	if (tank.GetX() > (currentLevel->GetWidth() - tankSprite->GetFrameWidth()))
+	{
+		tank.SetX(currentLevel->GetWidth() - tankSprite->GetFrameWidth());
+	}
+}
+
+void GameView::DrawBullet(Tank &tank)
+{
+	al_draw_bitmap(bullet, tank.GetCoordMuzzle().GetX(), tank.GetCoordMuzzle().GetY(), 0);
+	al_convert_mask_to_alpha(bullet, al_map_rgb(255, 255, 255));
+}
+
 void GameView::DrawTanks()
 {
 	ALLEGRO_BITMAP *sub_bitmap_player;
@@ -69,17 +90,14 @@ void GameView::DrawTanks()
 	Tank* playerTank = currentLevel->GetPlayerTank();
 	Tank* enemyTank = currentLevel->GetEnemyTank();
 
-	sub_bitmap_player = tankSprite->GetFrameByIndex(playerTank->GetCoordMuzzle().GetY() / 10);
-	sub_bitmap_enemy = tankSprite->GetFrameByIndex(enemyTank->GetCoordMuzzle().GetY() / 10);
+	DrawBullet(*playerTank);
+
+	sub_bitmap_player = tankSprite->GetFrameByIndex(playerTank->GetAngleMuzzle() / 10);
+	sub_bitmap_enemy = tankSprite->GetFrameByIndex(enemyTank->GetAngleMuzzle() / 10);
 	
-	/*if (playerTank->GetX() < 0)
-	{
-		playerTank->SetCoords(0, playerTank->GetY());
-	}
-	if ( playerTank->GetX() > ( currentLevel->GetWidth() - tankSprite->GetFrameWidth() ) )
-	{
-		playerTank->SetCoords( (currentLevel->GetWidth() - tankSprite->GetFrameWidth() ), playerTank->GetY() );
-	}*/
+	BorderLevel(*playerTank);
+	BorderLevel(*enemyTank);
+
 	al_draw_bitmap(sub_bitmap_player, playerTank->GetX(), playerTank->GetY(), 0);
 	al_draw_bitmap(sub_bitmap_enemy, enemyTank->GetX(), enemyTank->GetY(), ALLEGRO_FLIP_HORIZONTAL);
 	

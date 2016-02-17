@@ -13,6 +13,8 @@ public:
 
 	void SetCoords(int X, int Y);
 	void SetGameObject(int X, int Y, char objectName);
+	void SetX(int X);
+	void SetY(int Y);
 
 	int GetX() const;
 	int GetY() const;

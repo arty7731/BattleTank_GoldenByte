@@ -15,13 +15,24 @@ GameObject::GameObject(int X, int Y, char objectName)
 
 void GameObject::SetCoords(int X, int Y)
 {
-	coord.SetVector2d(X, Y);
+	SetX(X);
+	SetY(Y);
 }
 
 void GameObject::SetGameObject(int X, int Y, char objectName)
 {
 	SetCoords(X, Y);
 	this->objectName = objectName;
+}
+
+void GameObject::SetX(int X)
+{
+	coord.SetX(X);
+}
+
+void GameObject::SetY(int Y)
+{
+	coord.SetY(Y);
 }
 
 int GameObject::GetX() const

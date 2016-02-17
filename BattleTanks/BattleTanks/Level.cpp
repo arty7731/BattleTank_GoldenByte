@@ -11,7 +11,7 @@ void Level::Initialization()
 	{
 		objects[counter] = nullptr;
 	}
-	movable[counter] = new PlayerTank(1000, 310, 'P', 3, Direction::None, 10, 15);
+	movable[counter] = new PlayerTank(1000, 310, 'P', 3, Direction::None, 1010, 400);
 	objects[counter] = movable[counter++];
 	movable[counter] = new EnemyTank(100, 310, 'E', 3, Direction::None, 100, 15);
 	objects[counter] = movable[counter++];

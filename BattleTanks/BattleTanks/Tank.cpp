@@ -1,5 +1,5 @@
 #include "Tank.h"
-
+#include "Header.h"
 
 Tank::Tank()
 {
@@ -50,17 +50,27 @@ void Tank::ChangeDirection()
 void Tank::MuzzleUp()
 {
 	//if (GetCoordMuzzle().GetX() + 10 > 80) return;
-	if (angleMuzzle == 90) return;
-	coordMuzzle += 10;
+	if ((angleMuzzle + 10) > 80) return;
+
+	coordMuzzle.SetX(coordMuzzle.GetX() + 6);
+	coordMuzzle.SetY(coordMuzzle.GetY() - 9);
+
 	angleMuzzle += 10;
+	cout << angleMuzzle << endl;
 }
 
 void Tank::MuzzleDown()
 {
 	//if (GetCoordMuzzle().GetX() - 10 < 0) return;
-	if (angleMuzzle == -10) return;
-	coordMuzzle -= 10;
+	if ((angleMuzzle - 10) < 0) return;
+
+	coordMuzzle.SetX(coordMuzzle.GetX() - 6);
+	coordMuzzle.SetY(coordMuzzle.GetY() + 9);
+
 	angleMuzzle -= 10;
+	cout << angleMuzzle << endl;
+
+
 }
 
 bool Tank::IsPlayerTank()
