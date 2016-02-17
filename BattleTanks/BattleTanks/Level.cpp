@@ -13,7 +13,7 @@ void Level::Initialization()
 	}
 	movable[counter] = new PlayerTank(1000, 310, 'P', 3, Direction::None, 10, 15);
 	objects[counter] = movable[counter++];
-	movable[counter] = new EnemyTank(100, 310, 'E', 3, Direction::None, 100, 15);
+	movable[counter] = new EnemyTank(100, 310, 'E', 3, Direction::None, 10, 15);
 	objects[counter] = movable[counter++];
 	movable[counter] = new Bullet(10, 15, 'F', 3, Direction::None);
 	objects[counter] = movable[counter];
@@ -51,7 +51,7 @@ void Level::LevelTimerTick()
 		{
 			movable[i]->Move();
 
-			if (movable[i]->GetX() < 0 || movable[i]->GetX() >= width - 180
+			if (movable[i]->GetX() < 0 || movable[i]->GetX() >= width - 1
 				|| movable[i]->GetY() <= 0 || movable[i]->GetY() >= height)
 			{
 				movable[i]->SetDirection(Direction::None);

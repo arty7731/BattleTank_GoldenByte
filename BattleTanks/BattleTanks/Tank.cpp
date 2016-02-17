@@ -24,13 +24,13 @@ Vector2d Tank::GetCoordMuzzle() const
 	return coordMuzzle;
 }
 
-Vector2d Tank::GetSpeedBullet() const
+int Tank::GetSpeedBullet() const
 {
 	return speedBullet;
 }
-Vector2d Tank::GetAccelerationFire() const
+int Tank::GetAngleMuzzle() const
 {
-	return accelerationFire;
+	return angleMuzzle;
 }
 
 void Tank::ChangeDirection()
@@ -63,13 +63,14 @@ bool Tank::IsPlayerTank()
 	return false;
 }
 
-int Tank::ChoiceFighter()
+bool Tank::ChoiceFighter()
 {
-	return 2;
+	return false;
 }
 
-void Tank::Fire(Vector2d speedBullet, Vector2d accelerationFire)
+void Tank::Fire(int speedBullet, int accelerationFire)
 {
 	this->speedBullet = speedBullet;
-	this->accelerationFire = accelerationFire;
+	this->angleMuzzle = angleMuzzle;
+	ChoiceFighter();
 }

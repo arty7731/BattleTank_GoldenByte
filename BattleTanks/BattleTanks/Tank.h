@@ -6,9 +6,10 @@ class Tank :
 {
 protected:
 	Vector2d coordMuzzle;
+	bool choiceFighter;
+	int speedBullet;
+	int angleMuzzle;
 
-	Vector2d speedBullet;
-	Vector2d accelerationFire;
 
 public:
 	Tank();
@@ -18,15 +19,15 @@ public:
 	void SetCoordMuzzle(Vector2d coord);
 
 	Vector2d GetCoordMuzzle() const;
-	Vector2d GetSpeedBullet() const;
-	Vector2d GetAccelerationFire() const;
+	int GetSpeedBullet() const;
+	int GetAngleMuzzle() const;
 
 	virtual void ChangeDirection();
 	void MuzzleUp();
 	void MuzzleDown();
 	virtual bool IsPlayerTank();
+	virtual bool ChoiceFighter();
 	virtual void Move() = 0;
-	virtual int ChoiceFighter();
-	virtual void Fire(Vector2d speedBullet, Vector2d accelerationFire);
+	virtual void Fire(int speedBullet, int accelerationFire);
 };
 

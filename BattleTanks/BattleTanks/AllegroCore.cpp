@@ -128,6 +128,10 @@ void AllegroCore::Main()
 			{
 				((GameView*)currentView)->SetDirection(keyControl.GetDirection(ev));
 			}
+			if (ev.keyboard.keycode == ALLEGRO_KEY_SPACE)
+			{
+				((GameView*)currentView)->WhatFire();
+			}
 		}
 		if (ev.type == ALLEGRO_EVENT_KEY_UP)
 		{

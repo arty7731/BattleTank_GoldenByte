@@ -16,6 +16,8 @@ protected:
 
 	Level* currentLevel;
 
+	int whatFire;
+
 	void DrawTanks();
 	void DrawUI();
 
@@ -26,7 +28,7 @@ public:
 	void StartLevel(Level* level);
 	virtual void Update();
 	ViewType GetViewType() const;
-
+	void WhatFire();
 	void SetDirection(Direction dir);
 	
 	~GameView();

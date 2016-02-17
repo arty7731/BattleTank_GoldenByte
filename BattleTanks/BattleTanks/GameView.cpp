@@ -20,6 +20,7 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 	al_convert_mask_to_alpha(tankRight, al_map_rgb(41, 41, 41));
 	tankSprite = new SpriteContainer(tankRight, 0, 0, 180, 175, 9);
 	
+	whatFire = 2;
 }
 
 ViewType GameView::CheckSwitchView(int x, int y)
@@ -84,18 +85,42 @@ void GameView::DrawTanks()
 	
 }
 
+void GameView::WhatFire()
+{
+	if (whatFire == 1) whatFire = 2;
+	else whatFire = 1;
+}
+
 void GameView::SetDirection(Direction dir)
 {
-	currentLevel->GetPlayerTank()->SetDirection(dir);
-	
-	if (dir == Direction::Up)
+	switch (whatFire)
 	{
-		currentLevel->GetPlayerTank()->MuzzleUp();
+	case 1:
+		currentLevel->GetPlayerTank()->SetDirection(dir);
+
+		if (dir == Direction::Up)
+		{
+			currentLevel->GetPlayerTank()->MuzzleUp();
+		}
+		else if (dir == Direction::Down)
+		{
+			currentLevel->GetPlayerTank()->MuzzleDown();
+		}
+		break;
+	case 2:
+		currentLevel->GetEnemyTank()->SetDirection(dir);
+
+		if (dir == Direction::Up)
+		{
+			currentLevel->GetEnemyTank()->MuzzleUp();
+		}
+		else if (dir == Direction::Down)
+		{
+			currentLevel->GetEnemyTank()->MuzzleDown();
+		}
+		break;
 	}
-	else if (dir == Direction::Down)
-	{
-		currentLevel->GetPlayerTank()->MuzzleDown();
-	}
+
 }
 
 GameView::~GameView()
