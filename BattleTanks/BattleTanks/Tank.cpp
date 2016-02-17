@@ -8,6 +8,7 @@ Tank::Tank(int X, int Y, char objectName, int speed, Direction direction, int mx
 	: Movable(X, Y, objectName, speed, direction)
 {
 	SetCoordMuzzle(mx, my);
+	angleMuzzle = 0;
 }
 
 void Tank::SetCoordMuzzle(int X, int Y)
@@ -48,14 +49,18 @@ void Tank::ChangeDirection()
 
 void Tank::MuzzleUp()
 {
-	if (GetCoordMuzzle().GetX() + 10 > 80) return;
+	//if (GetCoordMuzzle().GetX() + 10 > 80) return;
+	if (angleMuzzle == 90) return;
 	coordMuzzle += 10;
+	angleMuzzle += 10;
 }
 
 void Tank::MuzzleDown()
 {
-	if (GetCoordMuzzle().GetX() - 10 < 0) return;
+	//if (GetCoordMuzzle().GetX() - 10 < 0) return;
+	if (angleMuzzle == -10) return;
 	coordMuzzle -= 10;
+	angleMuzzle -= 10;
 }
 
 bool Tank::IsPlayerTank()
