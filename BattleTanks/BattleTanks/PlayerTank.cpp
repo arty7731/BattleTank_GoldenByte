@@ -29,9 +29,11 @@ void PlayerTank::Move()
 		break;
 	case Direction::Right:
 		coord.SetX(coord.GetX() - speed);
+		coordMuzzle.SetX(coordMuzzle.GetX() - speed);
 		break;
 	case Direction::Left:
 		coord.SetX(coord.GetX() + speed);
+		coordMuzzle.SetX(coordMuzzle.GetX() + speed);
 		break;
 	}
 }
