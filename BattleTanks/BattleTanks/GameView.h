@@ -31,7 +31,7 @@ public:
 	void StartLevel(Level* level);
 	virtual void Update();
 	ViewType GetViewType() const;
-	void WhatFire();
+	void WhoFire();
 	void SetDirection(Direction dir);
 	
 	~GameView();

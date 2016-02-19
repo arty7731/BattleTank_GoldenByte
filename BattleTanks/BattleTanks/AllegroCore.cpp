@@ -130,7 +130,7 @@ void AllegroCore::Main()
 			}
 			if (ev.keyboard.keycode == ALLEGRO_KEY_SPACE)
 			{
-				((GameView*)currentView)->WhatFire();
+				((GameView*)currentView)->WhoFire();
 			}
 		}
 		if (ev.type == ALLEGRO_EVENT_KEY_UP)

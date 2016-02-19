@@ -103,7 +103,7 @@ void GameView::DrawTanks()
 	
 }
 
-void GameView::WhatFire()
+void GameView::WhoFire()
 {
 	if (whatFire == 1) whatFire = 2;
 	else whatFire = 1;
