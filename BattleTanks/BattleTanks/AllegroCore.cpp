@@ -70,8 +70,6 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	firstLevel = new Level(width, height, 0);
 }
 
-
-
 void AllegroCore::Main()
 {
 	KeyboardController keyControl;
@@ -82,7 +80,6 @@ void AllegroCore::Main()
 
 	int x = 0, y = 0;
 	
-	//al_convert_mask_to_alpha(mainAtlas, al_map_rgb(0, 0, 0));
 
 	while (true)
 	{

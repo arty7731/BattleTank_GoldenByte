@@ -84,6 +84,9 @@
     <ClInclude Include="KeyboardController.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -139,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="KeyboardController.cpp">
       <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

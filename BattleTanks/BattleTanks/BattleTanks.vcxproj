@@ -168,6 +168,7 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="MainMenuView.h" />
     <ClInclude Include="Movable.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerTank.h" />
     <ClInclude Include="SpriteContainer.h" />
     <ClInclude Include="Tank.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="MainMenuView.cpp" />
     <ClCompile Include="Movable.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerTank.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SpriteContainer.cpp" />

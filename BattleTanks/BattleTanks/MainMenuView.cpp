@@ -25,6 +25,11 @@ ViewType MainMenuView::CheckSwitchView(int x, int y)
 	{
 		return ViewType::Exit;
 	}
+	else if (x > 149 && x < 369 && y > 313 && y < 367)
+	{
+		
+		return ViewType::GameView;
+	}
 	else
 	{
 		return ViewType::MainMenu;
