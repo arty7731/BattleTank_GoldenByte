@@ -57,9 +57,11 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 	al_register_event_source(eventQueue, al_get_display_event_source(display));
 	al_register_event_source(eventQueue, al_get_keyboard_event_source());
 	
+	KeyboardController *keyControl = new KeyboardController();
+
 	currentView = new MainMenuView(width, height, backgroundImage, mainFont);
 	views[(int)ViewType::MainMenu] = new MainMenuView(width, height, backgroundImage, mainFont);
-	views[(int)ViewType::GameView] = new GameView(width, height, roadImage, mainFont);
+	views[(int)ViewType::GameView] = new GameView(width, height, roadImage, mainFont, keyControl);
 	views[(int)ViewType::AboutMenu] = new AboutView(width, height, backgroundImage, mainFont);
 
 
@@ -72,7 +74,6 @@ void AllegroCore::Initialize(int width, int height, int r, int g, int b)
 
 void AllegroCore::Main()
 {
-	KeyboardController keyControl;
 
 	al_start_timer(timer);
 	ALLEGRO_EVENT ev;

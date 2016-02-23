@@ -1,6 +1,6 @@
 #include "GameView.h"
 
-GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLEGRO_FONT * mainFont)
+GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLEGRO_FONT * mainFont, KeyboardController *keyController)
 	: BaseView(width, height, backgroundImage, mainFont)
 {
 	arrowLeft = nullptr;
@@ -23,7 +23,14 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 	bullet = al_load_bitmap("Resources/Images/bullet.png");
 	if (bullet == nullptr) throw "Load bullet error!";
 
+	this->currentController = keyController;
+
 	whatFire = 2;
+}
+
+void GameView::ProcessIvent(ALLEGRO_EVENT *ev)
+{
+
 }
 
 ViewType GameView::CheckSwitchView(int x, int y)

@@ -83,7 +83,7 @@ bool Tank::ChoiceFighter()
 	return false;
 }
 
-void Tank::Fire(int speed, int angle)
+Bullet* Tank::Fire(int speed, int angle)
 {
 	this->speedBullet = speed;
 	this->angleMuzzle = angle;
@@ -91,4 +91,5 @@ void Tank::Fire(int speed, int angle)
 	currentBullet->OptionMove(coordMuzzle, speedBullet, angleMuzzle);
 	currentBullet->Move();
 	ChoiceFighter();
+
 }

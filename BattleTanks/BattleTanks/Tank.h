@@ -31,6 +31,6 @@ public:
 	virtual bool IsPlayerTank();
 	virtual bool ChoiceFighter();
 	virtual void Move() = 0;
-	virtual void Fire(int speed, int angle);
+	virtual Bullet* Fire(int speed, int angle);
 };
 
