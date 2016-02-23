@@ -1,5 +1,6 @@
 #pragma once
 #include "Movable.h"
+#include "Bullet.h"
 
 class Tank :
 	public Movable
@@ -9,6 +10,8 @@ protected:
 	bool choiceFighter;
 	int speedBullet;
 	int angleMuzzle;
+
+	Bullet *currentBullet;
 
 
 public:
@@ -28,6 +31,6 @@ public:
 	virtual bool IsPlayerTank();
 	virtual bool ChoiceFighter();
 	virtual void Move() = 0;
-	virtual void Fire(int speedBullet, int accelerationFire);
+	virtual void Fire(int speed, int angle);
 };
 
