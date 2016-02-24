@@ -29,7 +29,6 @@ public:
 	void MuzzleUp();
 	void MuzzleDown();
 	virtual bool IsPlayerTank();
-	virtual bool ChoiceFighter();
 	virtual void Move() = 0;
 	virtual Bullet* Fire(int speed, int angle);
 };

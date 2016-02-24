@@ -11,11 +11,6 @@ PlayerTank::PlayerTank(int X, int Y, char objectName, int speed, Direction direc
 {
 }
 
-bool PlayerTank::ChoiceFighter()
-{
-	return true;
-}
-
 bool PlayerTank::IsPlayerTank()
 {
 	return true;

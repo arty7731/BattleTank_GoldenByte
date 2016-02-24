@@ -10,7 +10,6 @@ public:
 
 	PlayerTank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my);
 
-	bool ChoiceFighter();
 	bool IsPlayerTank();
 	virtual void Move();
 };
