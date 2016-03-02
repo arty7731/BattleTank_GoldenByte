@@ -120,23 +120,12 @@ void AllegroCore::Main()
 			if (ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
 			{
 				currentView = views[(int)ViewType::MainMenu];
-			}
-
-			if (currentView->GetViewType() == ViewType::GameView)
-			{
-				((GameView*)currentView)->SetDirection(keyControl.GetDirection(ev));
-			}
-			if (ev.keyboard.keycode == ALLEGRO_KEY_SPACE)
-			{
-				((GameView*)currentView)->WhoFire();
-			}
+			}	
 		}
-		if (ev.type == ALLEGRO_EVENT_KEY_UP)
+
+		if (currentView->GetViewType() == ViewType::GameView)
 		{
-			if (currentView->GetViewType() == ViewType::GameView)
-			{
-				((GameView*)currentView)->SetDirection(keyControl.GetDirection(ev));
-			}
+			((GameView*)currentView)->ProcessIvent(&ev);
 		}
 
 		if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) break;	// для работы кнопки close

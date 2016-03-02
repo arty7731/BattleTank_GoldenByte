@@ -10,6 +10,7 @@ Direction KeyboardController::GetDirection(ALLEGRO_EVENT &ev)
 		case ALLEGRO_KEY_RIGHT: return Direction::Left;
 		case ALLEGRO_KEY_UP: return Direction::Up;
 		case ALLEGRO_KEY_DOWN: return Direction::Down;
+		case ALLEGRO_KEY_SPACE: return Direction::Fire;
 		}
 		return Direction::None;
 	}

@@ -47,6 +47,16 @@ void Bullet::OptionMove(Vector2d coordMuzzle, int forse, int angle)
 
 }
 
+int Bullet::GetX() const
+{
+	return coordBullet.GetX();
+}
+
+int Bullet::GetY() const
+{
+	return coordBullet.GetY();
+}
+
 void Bullet::ChangeDirection()
 {
 	switch (direction)

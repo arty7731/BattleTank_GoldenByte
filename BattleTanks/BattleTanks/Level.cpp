@@ -15,8 +15,9 @@ void Level::Initialization()
 	objects[counter] = movable[counter++];
 	movable[counter] = new EnemyTank(100, 310, 'E', 3, Direction::None, 100, 15);
 	objects[counter] = movable[counter++];
-	movable[counter] = new Bullet(10, 15, 'F', 3, Direction::None);
-	objects[counter] = movable[counter];
+	movable[counter] = nullptr;// new Bullet(10, 15, 'F', 3, Direction::None);
+	objects[counter] = nullptr;// movable[counter];
+	objectCount = 2;
 }
 
 Level::Level()
@@ -64,6 +65,7 @@ Tank * Level::GetPlayerTank() const
 {
 	for (int i = 0; i < 2 + 1; i++)
 	{
+		if (movable[i] == nullptr) continue;
 		Tank *tank = dynamic_cast<Tank*>(movable[i]);
 		if(tank != nullptr && tank->IsPlayerTank()) return tank;
 	}
@@ -74,6 +76,7 @@ Tank * Level::GetEnemyTank() const
 {
 	for (int i = 0; i < 2 + 1; i++)
 	{
+		if (movable[i] == nullptr) continue;
 		Tank *tank = dynamic_cast<Tank*>(movable[i]);
 		if (tank != nullptr && !tank->IsPlayerTank()) return tank;
 	}
@@ -83,9 +86,17 @@ Bullet * Level::GetBullet() const
 {
 	for (int i = 0; i < 2 + 1; i++)
 	{
+		if (movable[i] == nullptr) continue;
 		Bullet *bullet = dynamic_cast<Bullet*>(movable[i]);
 		if (bullet != nullptr && bullet->IsBullet()) return bullet;
 	}
+	return nullptr;
+}
+
+void Level::SetBullet(Bullet* bullet)
+{
+	this->bullet = bullet;
+	movable[objectCount++] = bullet;
 }
 
 Level::~Level()

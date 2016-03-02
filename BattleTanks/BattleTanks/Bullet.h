@@ -23,4 +23,7 @@ public:
 	bool IsBullet() const;
 	virtual void Move();
 
+	int GetX() const;
+	int GetY() const;
+
 };

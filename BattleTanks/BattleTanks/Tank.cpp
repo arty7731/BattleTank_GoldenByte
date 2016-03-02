@@ -79,7 +79,7 @@ bool Tank::IsPlayerTank()
 
 Bullet* Tank::Fire(int speed, int angle)
 {
-	currentBullet = new Bullet(0, 0, 'B', 3, Direction::None);
+	currentBullet = new Bullet(coordMuzzle.GetX(), coordMuzzle.GetY(), 'B', 3, Direction::None);
 	this->speedBullet = speed;
 	this->angleMuzzle = angle;
 	currentBullet->SetDirection(Direction::Right);

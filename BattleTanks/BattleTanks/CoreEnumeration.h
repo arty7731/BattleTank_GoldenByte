@@ -6,7 +6,8 @@ enum class Direction
 	Right,
 	Left,
 	Up,
-	Down
+	Down,
+	Fire
 };
 
 enum class BulletType

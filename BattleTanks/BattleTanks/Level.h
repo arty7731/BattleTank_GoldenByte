@@ -9,6 +9,7 @@ class Level
 
 	GameObject **objects;
 	Movable **movable;
+	Bullet* bullet;
 
 	int width;
 	int height;
@@ -29,6 +30,7 @@ public:
 	Tank* GetPlayerTank() const;
 	Tank* GetEnemyTank() const;
 	Bullet* GetBullet() const;
+	void SetBullet(Bullet* bullet);
 
 	~Level();
 };

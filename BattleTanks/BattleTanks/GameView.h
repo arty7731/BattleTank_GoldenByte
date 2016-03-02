@@ -25,7 +25,7 @@ protected:
 	void DrawTanks();
 	void DrawUI();
 	void BorderLevel(Tank &tank);
-	void DrawBullet(Tank &tank);
+	void DrawBullet();
 
 public:
 	GameView(int width, int height, ALLEGRO_BITMAP *backgroundImage, ALLEGRO_FONT *mainFont, KeyboardController *keyController);

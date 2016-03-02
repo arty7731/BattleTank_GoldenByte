@@ -30,7 +30,18 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 
 void GameView::ProcessIvent(ALLEGRO_EVENT *ev)
 {
-
+	if (ev->type == ALLEGRO_EVENT_KEY_DOWN)
+	{
+		SetDirection(currentController->GetDirection(*ev));
+		/*if (ev->keyboard.keycode == ALLEGRO_KEY_SPACE)
+		{
+			((GameView*)currentView)->WhoFire();
+		}*/
+	}
+	if (ev->type == ALLEGRO_EVENT_KEY_UP)
+	{
+		SetDirection(Direction::None);
+	}
 }
 
 ViewType GameView::CheckSwitchView(int x, int y)
@@ -82,9 +93,11 @@ void GameView::BorderLevel(Tank & tank)
 	}
 }
 
-void GameView::DrawBullet(Tank &tank)
+void GameView::DrawBullet()
 {
-	al_draw_bitmap(bullet, tank.GetCoordMuzzle().GetX(), tank.GetCoordMuzzle().GetY(), 0);
+	Bullet* b = currentLevel->GetBullet();
+	if (b == nullptr) return;
+	al_draw_bitmap(bullet, b->GetX(), b->GetY(), 0);
 	al_convert_mask_to_alpha(bullet, al_map_rgb(255, 255, 255));
 }
 
@@ -97,7 +110,7 @@ void GameView::DrawTanks()
 	Tank* playerTank = currentLevel->GetPlayerTank();
 	Tank* enemyTank = currentLevel->GetEnemyTank();
 
-	DrawBullet(*playerTank);
+	DrawBullet();
 
 	sub_bitmap_player = tankSprite->GetFrameByIndex(playerTank->GetAngleMuzzle() / 10);
 	sub_bitmap_enemy = tankSprite->GetFrameByIndex(enemyTank->GetAngleMuzzle() / 10);
@@ -118,34 +131,25 @@ void GameView::WhoFire()
 
 void GameView::SetDirection(Direction dir)
 {
-	switch (whatFire)
+	Tank* tank = whatFire ? currentLevel->GetPlayerTank() : currentLevel->GetEnemyTank();
+	
+	if (dir == Direction::Up)
 	{
-	case 1:
-		currentLevel->GetPlayerTank()->SetDirection(dir);
-
-		if (dir == Direction::Up)
-		{
-			currentLevel->GetPlayerTank()->MuzzleUp();
-		}
-		else if (dir == Direction::Down)
-		{
-			currentLevel->GetPlayerTank()->MuzzleDown();
-		}
-		break;
-	case 2:
-		currentLevel->GetEnemyTank()->SetDirection(dir);
-
-		if (dir == Direction::Up)
-		{
-			currentLevel->GetEnemyTank()->MuzzleUp();
-		}
-		else if (dir == Direction::Down)
-		{
-			currentLevel->GetEnemyTank()->MuzzleDown();
-		}
-		break;
+		tank->MuzzleUp();
 	}
-
+	else if (dir == Direction::Down)
+	{
+		tank->MuzzleDown();
+	}
+	else if (dir == Direction::Fire)
+	{
+		Bullet* bullet = tank->Fire(5, 0);
+		currentLevel->SetBullet(bullet);
+	}
+	else
+	{
+		tank->SetDirection(dir);
+	}
 }
 
 GameView::~GameView()
