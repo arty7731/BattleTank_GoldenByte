@@ -82,7 +82,7 @@ Bullet* Tank::Fire(int speed, int angle)
 	currentBullet = new Bullet(coordMuzzle.GetX(), coordMuzzle.GetY(), 'B', 3, Direction::None);
 	this->speedBullet = speed;
 	this->angleMuzzle = angle;
-	currentBullet->SetDirection(Direction::Right);
+	currentBullet->SetDirection(Direction::Left);
 	currentBullet->OptionMove(coordMuzzle, speedBullet, angleMuzzle);
 	currentBullet->Move();
 	currentBullet->ChangeDirection();

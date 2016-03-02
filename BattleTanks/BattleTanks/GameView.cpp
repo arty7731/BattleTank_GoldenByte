@@ -143,7 +143,7 @@ void GameView::SetDirection(Direction dir)
 	}
 	else if (dir == Direction::Fire)
 	{
-		Bullet* bullet = tank->Fire(5, 0);
+		Bullet* bullet = tank->Fire(20, 80 - tank->GetAngleMuzzle());
 		currentLevel->SetBullet(bullet);
 	}
 	else

@@ -46,6 +46,11 @@ int Level::GetHeigth() const
 
 void Level::LevelTimerTick()
 {
+	static int frame = 0;
+
+	if (++frame % 5 != 0) return;
+
+
 	for (int i = 0; i < 2 + 1; i++)
 	{
 		if (movable[i] != nullptr)
