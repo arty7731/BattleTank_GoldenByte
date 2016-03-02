@@ -9,6 +9,7 @@ Tank::Tank(int X, int Y, char objectName, int speed, Direction direction, int mx
 {
 	SetCoordMuzzle(mx, my);
 	angleMuzzle = 0;
+	currentBullet = nullptr;
 }
 
 void Tank::SetCoordMuzzle(int X, int Y)
@@ -49,7 +50,6 @@ void Tank::ChangeDirection()
 
 void Tank::MuzzleUp()
 {
-	//if (GetCoordMuzzle().GetX() + 10 > 80) return;
 	if ((angleMuzzle + 10) > 80) return;
 
 	coordMuzzle.SetX(coordMuzzle.GetX() + 6);
@@ -61,7 +61,6 @@ void Tank::MuzzleUp()
 
 void Tank::MuzzleDown()
 {
-	//if (GetCoordMuzzle().GetX() - 10 < 0) return;
 	if ((angleMuzzle - 10) < 0) return;
 
 	coordMuzzle.SetX(coordMuzzle.GetX() - 6);
@@ -78,17 +77,14 @@ bool Tank::IsPlayerTank()
 	return false;
 }
 
-bool Tank::ChoiceFighter()
+Bullet* Tank::Fire(int speed, int angle)
 {
-	return false;
-}
-
-void Tank::Fire(int speed, int angle)
-{
+	currentBullet = new Bullet(0, 0, 'B', 3, Direction::None);
 	this->speedBullet = speed;
 	this->angleMuzzle = angle;
 	currentBullet->SetDirection(Direction::Right);
 	currentBullet->OptionMove(coordMuzzle, speedBullet, angleMuzzle);
 	currentBullet->Move();
-	ChoiceFighter();
+	currentBullet->ChangeDirection();
+	return currentBullet;
 }
