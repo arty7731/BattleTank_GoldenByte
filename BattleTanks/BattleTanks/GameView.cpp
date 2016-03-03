@@ -33,14 +33,10 @@ void GameView::ProcessIvent(ALLEGRO_EVENT *ev)
 	if (ev->type == ALLEGRO_EVENT_KEY_DOWN)
 	{
 		SetDirection(currentController->GetDirection(*ev));
-		/*if (ev->keyboard.keycode == ALLEGRO_KEY_SPACE)
-		{
-			((GameView*)currentView)->WhoFire();
-		}*/
 	}
 	if (ev->type == ALLEGRO_EVENT_KEY_UP)
 	{
-		SetDirection(Direction::None);
+		SetDirection(Option::None);
 	}
 }
 
@@ -120,36 +116,42 @@ void GameView::DrawTanks()
 
 	al_draw_bitmap(sub_bitmap_player, playerTank->GetX(), playerTank->GetY(), 0);
 	al_draw_bitmap(sub_bitmap_enemy, enemyTank->GetX(), enemyTank->GetY(), ALLEGRO_FLIP_HORIZONTAL);
-	
 }
 
 void GameView::WhoFire()
 {
-	if (whatFire == 1) whatFire = 2;
+	if (whatFire) whatFire = 2;
 	else whatFire = 1;
 }
 
-void GameView::SetDirection(Direction dir)
+void GameView::SetDirection(Option dir)
 {
-	Tank* tank = whatFire ? currentLevel->GetPlayerTank() : currentLevel->GetEnemyTank();
+	Tank* tank = whatFire == 2 ? currentLevel->GetPlayerTank() : currentLevel->GetEnemyTank();
 	
-	if (dir == Direction::Up)
+	if (dir == Option::Up)
 	{
 		tank->MuzzleUp();
+		cout << "up" << endl;
 	}
-	else if (dir == Direction::Down)
+	else if (dir == Option::Down)
 	{
 		tank->MuzzleDown();
+		cout << "down" << endl;
 	}
-	else if (dir == Direction::Fire)
+	else if (dir == Option::Fire)
 	{
 		Bullet* bullet = tank->Fire(20, 80 - tank->GetAngleMuzzle());
 		currentLevel->SetBullet(bullet);
+		whatFire = 1;
+		cout << "fire" << endl;
 	}
-	else
+	else if(dir == Option::Left || dir == Option::Right || dir == Option::None)
 	{
 		tank->SetDirection(dir);
+		cout << "SetDirection" << endl;
+
 	}
+
 }
 
 GameView::~GameView()

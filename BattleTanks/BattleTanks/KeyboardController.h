@@ -6,5 +6,5 @@ class KeyboardController
 {
 public:
 
-	Direction GetDirection(ALLEGRO_EVENT &ev);
+	Option GetDirection(ALLEGRO_EVENT &ev);
 };

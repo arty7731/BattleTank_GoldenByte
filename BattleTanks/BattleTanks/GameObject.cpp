@@ -8,41 +8,41 @@ GameObject::GameObject()
 	objectName = 'E';
 }
 
-GameObject::GameObject(int X, int Y, char objectName)
+GameObject::GameObject(float X, float Y, char objectName)
 {
 	SetGameObject(X, Y, objectName);
 }
 
-void GameObject::SetCoords(int X, int Y)
+void GameObject::SetCoords(float X, float Y)
 {
 	SetX(X);
 	SetY(Y);
 }
 
-void GameObject::SetGameObject(int X, int Y, char objectName)
+void GameObject::SetGameObject(float X, float Y, char objectName)
 {
 	SetCoords(X, Y);
 	this->objectName = objectName;
 }
 
-void GameObject::SetX(int X)
+void GameObject::SetX(float X)
 {
-	coord.SetX(X);
+	coord.X = X;
 }
 
-void GameObject::SetY(int Y)
+void GameObject::SetY(float Y)
 {
-	coord.SetY(Y);
+	coord.Y = Y;
 }
 
-int GameObject::GetX() const
+float GameObject::GetX() const
 {
-	return coord.GetX();
+	return coord.X;
 }
 
-int GameObject::GetY() const
+float GameObject::GetY() const
 {
-	return coord.GetY();
+	return coord.Y;
 }
 
 char GameObject::GetObjectName() const

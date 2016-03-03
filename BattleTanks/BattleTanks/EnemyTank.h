@@ -5,8 +5,9 @@ class EnemyTank :
 	public Tank
 {
 public:
-	EnemyTank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my);
+	EnemyTank(float X, float Y, char objectName, float speed, Option direction, float mx, float my);
 
+	bool ChoiceFighter();
 	void Move();
 
 };

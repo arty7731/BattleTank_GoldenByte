@@ -8,7 +8,7 @@ class PlayerTank :
 public:
 	PlayerTank();
 
-	PlayerTank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my);
+	PlayerTank(float X, float Y, char objectName, float speed, Option direction, float mx, float my);
 
 	bool IsPlayerTank();
 	virtual void Move();

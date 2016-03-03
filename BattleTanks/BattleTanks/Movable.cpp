@@ -7,7 +7,7 @@ Movable::Movable()
 	speed = 0;
 }
 
-Movable::Movable(int X, int Y, char objectName, int speed, Direction direction)
+Movable::Movable(float X, float Y, char objectName, int speed, Option direction)
 	: GameObject(X, Y, objectName)
 {
 	SetSpeed(speed);
@@ -23,11 +23,11 @@ int Movable::GetSpeed() const
 	return speed;
 }
 
-void Movable::SetDirection(Direction direction)
+void Movable::SetDirection(Option direction)
 {
 	this->direction = direction;
 }
-Direction Movable::GetDirection() const
+Option Movable::GetDirection() const
 {
 	return direction;
 }

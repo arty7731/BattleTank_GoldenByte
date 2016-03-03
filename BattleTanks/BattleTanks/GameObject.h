@@ -9,15 +9,15 @@ protected:
 
 public:
 	GameObject();
-	GameObject(int X, int Y, char objectName);
+	GameObject(float X, float Y, char objectName);
 
-	void SetCoords(int X, int Y);
-	void SetGameObject(int X, int Y, char objectName);
-	void SetX(int X);
-	void SetY(int Y);
+	void SetCoords(float X, float Y);
+	void SetGameObject(float X, float Y, char objectName);
+	void SetX(float X);
+	void SetY(float Y);
 
-	int GetX() const;
-	int GetY() const;
+	float GetX() const;
+	float GetY() const;
 	char GetObjectName() const;
 
 	virtual ~GameObject() = 0;

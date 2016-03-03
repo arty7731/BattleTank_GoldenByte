@@ -7,16 +7,16 @@ class Movable :
 {
 protected:
 	int speed;
-	Direction direction;
+	Option direction;
 public:
 	Movable();
-	Movable(int X, int Y, char objectName, int speed, Direction direction);
+	Movable(float X, float Y, char objectName, int speed, Option direction);
 
 	void SetSpeed(int speed);
 	int GetSpeed() const;
 
-	void SetDirection(Direction direction);
-	Direction GetDirection() const;
+	void SetDirection(Option direction);
+	Option GetDirection() const;
 	virtual void ChangeDirection() = 0;
 
 	virtual void Move() = 0;

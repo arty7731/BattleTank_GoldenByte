@@ -16,15 +16,16 @@ protected:
 
 public:
 	Tank();
-	Tank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my);
+	Tank(float X, float Y, char objectName, int speed, Option direction, float mx, float my);
 
-	void SetCoordMuzzle(int X, int Y);
+	void SetCoordMuzzle(float X, float Y);
 	void SetCoordMuzzle(Vector2d coord);
 
 	Vector2d GetCoordMuzzle() const;
-	int GetSpeedBullet() const;
-	int GetAngleMuzzle() const;
+	float GetSpeedBullet() const;
+	float GetAngleMuzzle() const;
 
+	virtual bool ChoiceFighter();
 	virtual void ChangeDirection();
 	void MuzzleUp();
 	void MuzzleDown();

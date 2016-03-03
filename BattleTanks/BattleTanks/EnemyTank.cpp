@@ -1,24 +1,28 @@
 #include "EnemyTank.h"
 
-EnemyTank::EnemyTank(int X, int Y, char objectName, int speed, Direction direction, int mx, int my)
+EnemyTank::EnemyTank(float X, float Y, char objectName, float speed, Option direction, float mx, float my)
 	: Tank(X, Y, objectName, speed, direction, mx, my)
 {
 }
 
+bool EnemyTank::ChoiceFighter()
+{
+	return false;
+}
+
 void EnemyTank::Move()
 {
-	//TODO move enemy tank
 	switch (direction)
 	{
-	case Direction::None:
+	case Option::None:
 		break;
-	case Direction::Right:
-		coord.SetX(coord.GetX() - speed);
-		coordMuzzle.SetX(coordMuzzle.GetX() - speed);
+	case Option::Right:
+		coord.X = coord.X - speed;
+		coordMuzzle.X = coordMuzzle.X - speed;
 		break;
-	case Direction::Left:
-		coord.SetX(coord.GetX() + speed);
-		coordMuzzle.SetX(coordMuzzle.GetX() + speed);
+	case Option::Left:
+		coord.X = coord.X + speed;
+		coordMuzzle.X = coordMuzzle.X + speed;
 		break;
 	}
 }

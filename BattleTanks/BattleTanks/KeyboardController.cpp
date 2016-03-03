@@ -1,18 +1,18 @@
 #include "KeyboardController.h"
 
-Direction KeyboardController::GetDirection(ALLEGRO_EVENT &ev)
+Option KeyboardController::GetDirection(ALLEGRO_EVENT &ev)
 {
 	if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
 	{
 		switch (ev.keyboard.keycode)
 		{
-		case ALLEGRO_KEY_LEFT: return Direction::Right;
-		case ALLEGRO_KEY_RIGHT: return Direction::Left;
-		case ALLEGRO_KEY_UP: return Direction::Up;
-		case ALLEGRO_KEY_DOWN: return Direction::Down;
-		case ALLEGRO_KEY_SPACE: return Direction::Fire;
+		case ALLEGRO_KEY_LEFT: return Option::Right;
+		case ALLEGRO_KEY_RIGHT: return Option::Left;
+		case ALLEGRO_KEY_UP: return Option::Up;
+		case ALLEGRO_KEY_DOWN: return Option::Down;
+		case ALLEGRO_KEY_SPACE: return Option::Fire;
 		}
-		return Direction::None;
+		return Option::None;
 	}
 }
 

@@ -36,7 +36,7 @@ public:
 	virtual void Update();
 	ViewType GetViewType() const;
 	void WhoFire();
-	void SetDirection(Direction dir);
+	void SetDirection(Option dir);
 	
 	~GameView();
 };

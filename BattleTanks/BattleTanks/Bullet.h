@@ -15,7 +15,7 @@ protected:
 
 public:
 	Bullet();
-	Bullet(int X, int Y, char objectName, int speed, Direction direction);
+	Bullet(float X, float Y, char objectName, int speed, Option direction);
 	
 	void OptionMove(Vector2d coordMuzzle, int forse, int angle);
 	void ChangeDirection();
@@ -23,7 +23,7 @@ public:
 	bool IsBullet() const;
 	virtual void Move();
 
-	int GetX() const;
-	int GetY() const;
+	float GetX() const;
+	float GetY() const;
 
 };
