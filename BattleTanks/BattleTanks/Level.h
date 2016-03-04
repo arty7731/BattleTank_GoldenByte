@@ -3,12 +3,13 @@
 #include "EnemyTank.h"
 #include "Bullet.h"
 #include "Ground.h"
+#include <vector>
 
 class Level
 {
 
-	GameObject **objects;
-	Movable **movable;
+	std::vector<GameObject*> objects;
+	std::vector<Movable*> movable;
 	Bullet* bullet;
 
 	int width;
