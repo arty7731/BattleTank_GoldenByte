@@ -84,10 +84,10 @@ bool Tank::IsPlayerTank()
 
 Bullet* Tank::Fire(int speed, int angle)
 {
-	currentBullet = new Bullet(coordMuzzle.X, coordMuzzle.Y, 'B', 3, Option::None);
+	currentBullet = new Bullet(coordMuzzle.X, coordMuzzle.Y, 'B', 3, Option::Right);
 	this->speedBullet = speed;
 	this->angleMuzzle = angle;
-	currentBullet->SetDirection(Option::Left);
+	//currentBullet->SetDirection(Option::Left);
 	currentBullet->OptionMove(coordMuzzle, speedBullet, angleMuzzle);
 	currentBullet->Move();
 	currentBullet->ChangeDirection();

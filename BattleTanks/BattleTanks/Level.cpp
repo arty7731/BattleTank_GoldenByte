@@ -21,8 +21,8 @@ void Level::Initialization()
 	movable.push_back(new PlayerTank(1000.0f, 310.0f, 'P', 3, Option::None, 1010.0f, 400.0f));
 	objects.push_back(new PlayerTank(1000.0f, 310.0f, 'P', 3, Option::None, 1010.0f, 400.0f));
 
-	movable.push_back(new EnemyTank(100.0f, 310.0f, 'E', 3, Option::None, 100.0f, 15.0f));
-	objects.push_back(new EnemyTank(100.0f, 310.0f, 'E', 3, Option::None, 100.0f, 15.0f));
+	movable.push_back(new EnemyTank(100.0f, 310.0f, 'E', 3, Option::None, 263.0f, 400.0f));
+	objects.push_back(new EnemyTank(100.0f, 310.0f, 'E', 3, Option::None, 263.0f, 400.0f));
 }
 
 Level::Level()

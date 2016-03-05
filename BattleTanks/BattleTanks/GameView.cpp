@@ -1,5 +1,7 @@
 #include "GameView.h"
 
+int GameView::whatFire = 2;
+
 GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLEGRO_FONT * mainFont, KeyboardController *keyController)
 	: BaseView(width, height, backgroundImage, mainFont)
 {
@@ -24,8 +26,6 @@ GameView::GameView(int width, int height, ALLEGRO_BITMAP * backgroundImage, ALLE
 	if (bullet == nullptr) throw "Load bullet error!";
 
 	this->currentController = keyController;
-
-	whatFire = 2;
 }
 
 void GameView::ProcessIvent(ALLEGRO_EVENT *ev)
@@ -119,14 +119,14 @@ void GameView::DrawTanks()
 }
 
 void GameView::WhoFire()
-{
-	if (whatFire) whatFire = 2;
-	else whatFire = 1;
+{	
+	if (whatFire == 1) whatFire = 2;
+	else if (whatFire == 2) whatFire = 1;
 }
 
 void GameView::SetDirection(Option dir)
 {
-	Tank* tank = whatFire == 2 ? currentLevel->GetPlayerTank() : currentLevel->GetEnemyTank();
+	Tank* tank = whatFire == 1 ? currentLevel->GetPlayerTank() : currentLevel->GetEnemyTank();
 	
 	if (dir == Option::Up)
 	{
@@ -140,9 +140,9 @@ void GameView::SetDirection(Option dir)
 	}
 	else if (dir == Option::Fire)
 	{
-		Bullet* bullet = tank->Fire(20, 80 - tank->GetAngleMuzzle());
+		Bullet* bullet = tank->Fire(20, tank->GetAngleMuzzle());
 		currentLevel->SetBullet(bullet);
-		whatFire = 1;
+		WhoFire();
 		cout << "fire" << endl;
 	}
 	else if(dir == Option::Left || dir == Option::Right || dir == Option::None)

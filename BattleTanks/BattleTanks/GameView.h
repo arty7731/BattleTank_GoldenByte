@@ -20,7 +20,7 @@ protected:
 
 	Level* currentLevel;
 
-	int whatFire;
+	static int whatFire;
 
 	void DrawTanks();
 	void DrawUI();
