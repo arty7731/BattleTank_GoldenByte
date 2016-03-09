@@ -10,6 +10,17 @@ bool EnemyTank::ChoiceFighter()
 	return false;
 }
 
+Bullet* EnemyTank::Fire(int speed, int angle)
+{
+	currentBullet = new Bullet(coordMuzzle.X, coordMuzzle.Y, 'B', 3, Option::Right);
+	this->speedBullet = speed;
+	this->angleMuzzle = angle;
+	currentBullet->OptionMove(coordMuzzle, speedBullet, angleMuzzle);
+	currentBullet->Move();
+	currentBullet->ChangeDirection();
+	return currentBullet;
+}
+
 void EnemyTank::Move()
 {
 	switch (direction)

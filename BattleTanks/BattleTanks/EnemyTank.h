@@ -8,6 +8,7 @@ public:
 	EnemyTank(float X, float Y, char objectName, float speed, Option direction, float mx, float my);
 
 	bool ChoiceFighter();
+	virtual Bullet* Fire(int speed, int angle);
 	void Move();
 
 };

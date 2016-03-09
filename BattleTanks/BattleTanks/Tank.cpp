@@ -82,14 +82,13 @@ bool Tank::IsPlayerTank()
 	return false;
 }
 
-Bullet* Tank::Fire(int speed, int angle)
-{
-	currentBullet = new Bullet(coordMuzzle.X, coordMuzzle.Y, 'B', 3, Option::Right);
-	this->speedBullet = speed;
-	this->angleMuzzle = angle;
-	//currentBullet->SetDirection(Option::Left);
-	currentBullet->OptionMove(coordMuzzle, speedBullet, angleMuzzle);
-	currentBullet->Move();
-	currentBullet->ChangeDirection();
-	return currentBullet;
-}
+//Bullet* Tank::Fire(int speed, int angle)
+//{
+//	currentBullet = new Bullet(coordMuzzle.X, coordMuzzle.Y, 'B', 3, Option::Right);
+//	this->speedBullet = speed;
+//	this->angleMuzzle = angle;
+//	currentBullet->OptionMove(coordMuzzle, speedBullet, angleMuzzle);
+//	currentBullet->Move();
+//	//currentBullet->ChangeDirection();
+//	return currentBullet;
+//}

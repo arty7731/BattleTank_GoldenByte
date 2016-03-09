@@ -31,6 +31,6 @@ public:
 	void MuzzleDown();
 	virtual bool IsPlayerTank();
 	virtual void Move() = 0;
-	virtual Bullet* Fire(int speed, int angle);
+	virtual Bullet* Fire(int speed, int angle) = 0;
 };
 
